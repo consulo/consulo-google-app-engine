@@ -1,0 +1,12 @@
+<idea-plugin version="2">
+	<id>org.consulo.google-app-engine.py</id>
+	<name>Google App Engine Python</name>
+	<depends>org.consulo.google-app-engine.py.api</depends>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<sdkType implementation="org.consulo.google.appengine.py.sdk.PyAppSdkType" />
+
+		<moduleExtensionProvider key="google-app-engine-py" parent-key="python"
+								 implementationClass="org.consulo.google.appengine.py.module.extension.PyAppModuleExtensionProvider" />
+	</extensions>
+</idea-plugin>

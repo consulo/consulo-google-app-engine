@@ -1,0 +1,12 @@
+<idea-plugin version="2">
+	<id>org.consulo.google-app-engine.java</id>
+	<name>Google App Engine Java</name>
+	<depends>org.consulo.google-app-engine.api</depends>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<sdkType implementation="org.consulo.google.appengine.java.sdk.JavaAppSdkType" />
+
+		<moduleExtensionProvider key="google-app-engine-java" parent-key="java"
+								 implementationClass="org.consulo.google.appengine.java.module.extension.JavaAppModuleExtensionProvider" />
+	</extensions>
+</idea-plugin>

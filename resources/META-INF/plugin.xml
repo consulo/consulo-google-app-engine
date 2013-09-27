@@ -1,0 +1,8 @@
+<idea-plugin version="2">
+	<id>org.consulo.google-app-engine.api</id>
+	<name>Google App Engine API</name>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<remoteServer.type implementation="org.consulo.google.appengine.server.GoogleAppEngineServerType" />
+	</extensions>
+</idea-plugin>

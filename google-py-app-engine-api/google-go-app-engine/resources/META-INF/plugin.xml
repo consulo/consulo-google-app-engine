@@ -1,0 +1,12 @@
+<idea-plugin version="2">
+	<id>org.consulo.google-app-engine.go</id>
+	<name>Google App Engine Go</name>
+	<depends>org.consulo.google-app-engine.py.api</depends>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<sdkType implementation="org.consulo.google.appengine.go.sdk.GoAppSdkType" />
+
+		<moduleExtensionProvider key="google-app-engine-go" parent-key="google-go"
+								 implementationClass="org.consulo.google.appengine.go.module.extension.GoAppModuleExtensionProvider" />
+	</extensions>
+</idea-plugin>

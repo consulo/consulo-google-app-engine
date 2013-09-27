@@ -1,0 +1,12 @@
+<idea-plugin version="2">
+	<id>org.consulo.google-app-engine.php</id>
+	<name>Google App Engine PHP</name>
+	<depends>org.consulo.google-app-engine.py.api</depends>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<sdkType implementation="org.consulo.google.appengine.php.sdk.PhpAppSdkType" />
+
+		<moduleExtensionProvider key="google-app-engine-php" parent-key="php"
+								 implementationClass="org.consulo.google.appengine.php.module.extension.PhpAppModuleExtensionProvider" />
+	</extensions>
+</idea-plugin>
