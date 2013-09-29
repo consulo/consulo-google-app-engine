@@ -4,5 +4,6 @@
 
 	<extensions defaultExtensionNs="com.intellij">
 		<remoteServer.type implementation="org.consulo.google.appengine.server.GoogleAppEngineServerType" />
+		<remoteServer.deploymentSource.type implementation="org.consulo.google.appengine.server.GoogleAppEngineDeploymentSourceType" />
 	</extensions>
 </idea-plugin>

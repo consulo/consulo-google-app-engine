@@ -12,7 +12,6 @@ import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.util.Comparing;
 import com.intellij.remoteServer.configuration.deployment.ModuleDeploymentSource;
 import com.intellij.remoteServer.impl.configuration.deployment.ModuleDeploymentSourceImpl;
 
@@ -61,6 +60,7 @@ public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtens
 		commandLine.setExePath(PythonSdkType.getInstance().getExecutableFile(getRuntimeSdk()));
 		commandLine.addParameter("-u");
 		commandLine.addParameter(getSdk().getHomePath() + File.separator + "appcfg.py");
+		commandLine.addParameter("--no_cookies");
 		commandLine.addParameter("--email");
 		commandLine.addParameter(email);
 		if(oauth2)
@@ -81,11 +81,5 @@ public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtens
 	public void setEnabled(boolean b)
 	{
 		myIsEnabled = b;
-	}
-
-	@SuppressWarnings("unused")
-	public boolean isModifiedImpl(T t)
-	{
-		return super.isModifiedImpl(t) || !Comparing.equal(getRuntimeSdk(), t.getRuntimeSdk());
 	}
 }

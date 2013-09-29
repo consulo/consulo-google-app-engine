@@ -42,6 +42,7 @@ import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.IdeActions;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.progress.ProgressIndicator;
@@ -116,7 +117,13 @@ public class GoogleAppEngineUploader
 		{
 			public void run(@NotNull ProgressIndicator indicator)
 			{
-				startUploadingProcess();
+				ApplicationManager.getApplication().invokeLater(new Runnable()
+				{
+					public void run()
+					{
+						startUploadingProcess();
+					}
+				});
 			}
 		});
 	}

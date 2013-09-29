@@ -1,15 +1,12 @@
 package org.consulo.google.appengine.php.module.extension;
 
-import java.awt.BorderLayout;
-
-import javax.swing.JPanel;
-
 import org.consulo.module.extension.MutableModuleExtensionWithSdk;
 import org.consulo.module.extension.ui.ModuleExtensionWithSdkPanel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.roots.ModifiableRootModel;
+import com.intellij.util.ui.FormBuilder;
 
 /**
  * @author VISTALL
@@ -26,12 +23,11 @@ public class PhpAppMutableModuleExtension extends PhpAppModuleExtension implemen
 	}
 
 	@Nullable
-	@SuppressWarnings("unused")
 	public javax.swing.JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
 	{
-		JPanel panel = new JPanel(new BorderLayout());
-		panel.add(new ModuleExtensionWithSdkPanel(this, runnable), BorderLayout.NORTH);
-		return panel;
+		return FormBuilder.createFormBuilder()
+				.addComponent(new ModuleExtensionWithSdkPanel(this, runnable))
+				.addComponent(createRuntimeCheckBox()).setVertical(true).getPanel();
 	}
 
 	@Override
