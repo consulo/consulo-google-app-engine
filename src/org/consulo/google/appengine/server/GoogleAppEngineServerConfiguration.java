@@ -12,11 +12,13 @@ public class GoogleAppEngineServerConfiguration extends ServerConfigurationBase<
 	private String myEmail;
 
 	@Attribute("email")
-	public String getEmail() {
+	public String getEmail()
+	{
 		return myEmail;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(String email)
+	{
 		myEmail = email;
 	}
 }

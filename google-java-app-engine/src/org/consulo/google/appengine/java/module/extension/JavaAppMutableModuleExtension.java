@@ -1,9 +1,12 @@
 package org.consulo.google.appengine.java.module.extension;
 
-import javax.swing.JComponent;
+import java.awt.BorderLayout;
+
+import javax.swing.JPanel;
 
 import org.consulo.module.extension.MutableModuleExtensionWithSdk;
 import org.consulo.module.extension.MutableModuleInheritableNamedPointer;
+import org.consulo.module.extension.ui.ModuleExtensionWithSdkPanel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.module.Module;
@@ -32,10 +35,12 @@ public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implem
 	}
 
 	@Nullable
-	@Override
-	public JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
+	@SuppressWarnings("unused")
+	public javax.swing.JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
 	{
-		return null;
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add(new ModuleExtensionWithSdkPanel(this, runnable), BorderLayout.NORTH);
+		return panel;
 	}
 
 	@Override

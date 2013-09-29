@@ -34,9 +34,7 @@ import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.options.UnnamedConfigurable;
 import com.intellij.openapi.project.Project;
-import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.remoteServer.ServerType;
-import com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource;
 import com.intellij.remoteServer.configuration.deployment.DeploymentConfigurator;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
 import com.intellij.remoteServer.configuration.deployment.DummyDeploymentConfiguration;
@@ -171,7 +169,7 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 				{
 					continue;
 				}
-				list.add(deploymentSource);
+				list.add(new GoogleAppEngineDeploymentSource(deploymentSource, extension));
 			}
 
 			return list;
@@ -219,17 +217,13 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 		@Override
 		public void deploy(@NotNull DeploymentTask<DummyDeploymentConfiguration> task, @NotNull DeploymentLogManager logManager, @NotNull DeploymentOperationCallback callback)
 		{
-			Artifact artifact = ((ArtifactDeploymentSource) task.getSource()).getArtifact();
-			if(artifact == null)
-			{
-				return;
-			}
+			GoogleAppEngineDeploymentSource source = (GoogleAppEngineDeploymentSource) task.getSource();
 
-		/*	AppEngineUploader uploader = AppEngineUploader.createUploader(task.getProject(), artifact, myConfiguration, callback, logManager.getMainLoggingHandler());
+			GoogleAppEngineUploader uploader = GoogleAppEngineUploader.createUploader(source, myConfiguration, callback, logManager.getMainLoggingHandler());
 			if(uploader != null)
 			{
 				uploader.startUploading();
-			}     */
+			}
 		}
 
 		@Override
