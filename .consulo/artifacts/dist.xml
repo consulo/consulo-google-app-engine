@@ -30,7 +30,7 @@
           </element>
         </element>
       </element>
-      <element id="directory" name="google-go-app-engine.jar">
+      <element id="directory" name="google-go-app-engine">
         <element id="directory" name="lib">
           <element id="zip-archive" name="google-go-app-engine.jar">
             <element id="module-output" name="google-go-app-engine" />
