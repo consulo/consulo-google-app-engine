@@ -1,9 +1,5 @@
 package org.consulo.google.appengine.py.module.extension;
 
-import java.awt.BorderLayout;
-
-import javax.swing.JPanel;
-
 import org.consulo.module.extension.MutableModuleExtensionWithSdk;
 import org.consulo.module.extension.ui.ModuleExtensionWithSdkPanel;
 import org.jetbrains.annotations.NotNull;
@@ -29,9 +25,7 @@ public class PyAppMutableModuleExtension extends PyAppModuleExtension implements
 	@SuppressWarnings("unused")
 	public javax.swing.JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
 	{
-		JPanel panel = new JPanel(new BorderLayout());
-		panel.add(new ModuleExtensionWithSdkPanel(this, runnable), BorderLayout.NORTH);
-		return panel;
+		return wrapToNorth(new ModuleExtensionWithSdkPanel(this, runnable));
 	}
 
 	@Override

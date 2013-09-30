@@ -1,9 +1,5 @@
 package org.consulo.google.appengine.java.module.extension;
 
-import java.awt.BorderLayout;
-
-import javax.swing.JPanel;
-
 import org.consulo.module.extension.MutableModuleExtensionWithSdk;
 import org.consulo.module.extension.MutableModuleInheritableNamedPointer;
 import org.consulo.module.extension.ui.ModuleExtensionWithSdkPanel;
@@ -38,9 +34,7 @@ public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implem
 	@SuppressWarnings("unused")
 	public javax.swing.JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
 	{
-		JPanel panel = new JPanel(new BorderLayout());
-		panel.add(new ModuleExtensionWithSdkPanel(this, runnable), BorderLayout.NORTH);
-		return panel;
+		return wrapToNorth(new ModuleExtensionWithSdkPanel(this, runnable));
 	}
 
 	@Override

@@ -25,9 +25,9 @@ public class PhpAppMutableModuleExtension extends PhpAppModuleExtension implemen
 	@Nullable
 	public javax.swing.JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
 	{
-		return FormBuilder.createFormBuilder()
+		return wrapToNorth(FormBuilder.createFormBuilder()
 				.addComponent(new ModuleExtensionWithSdkPanel(this, runnable))
-				.addComponent(createRuntimeCheckBox()).setVertical(true).getPanel();
+				.addComponent(createRuntimeCheckBox()).setVertical(true).getPanel());
 	}
 
 	@Override

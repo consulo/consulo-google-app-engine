@@ -25,9 +25,9 @@ public class GoAppMutableModuleExtension extends GoAppModuleExtension implements
 	@Nullable
 	public javax.swing.JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
 	{
-		return FormBuilder.createFormBuilder()
+		return wrapToNorth(FormBuilder.createFormBuilder()
 				.addComponent(new ModuleExtensionWithSdkPanel(this, runnable))
-				.addComponent(createRuntimeCheckBox()).setVertical(true).getPanel();
+				.addComponent(createRuntimeCheckBox()).getPanel());
 	}
 
 	@Override
