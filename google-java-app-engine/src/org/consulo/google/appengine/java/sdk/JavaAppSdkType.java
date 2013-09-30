@@ -2,6 +2,7 @@ package org.consulo.google.appengine.java.sdk;
 
 import org.consulo.google.appengine.sdk.GoogleAppEngineSdk;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @author VISTALL
@@ -19,6 +20,13 @@ public class JavaAppSdkType extends GoogleAppEngineSdk
 	public String getLanguageName()
 	{
 		return "Java";
+	}
+
+	@Nullable
+	@Override
+	public String getVersionString(String s)
+	{
+		return "1";
 	}
 
 	@Override

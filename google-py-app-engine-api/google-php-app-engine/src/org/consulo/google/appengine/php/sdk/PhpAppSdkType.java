@@ -1,13 +1,13 @@
 package org.consulo.google.appengine.php.sdk;
 
-import org.consulo.google.appengine.sdk.GoogleAppEngineSdk;
+import org.consulo.google.appengine.python.sdk.GoogleAppEnginePySdk;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * @author VISTALL
  * @since 27.09.13.
  */
-public class PhpAppSdkType extends GoogleAppEngineSdk
+public class PhpAppSdkType extends GoogleAppEnginePySdk
 {
 	public PhpAppSdkType()
 	{
@@ -19,11 +19,5 @@ public class PhpAppSdkType extends GoogleAppEngineSdk
 	public String getLanguageName()
 	{
 		return "PHP";
-	}
-
-	@Override
-	public boolean isValidSdkHome(String s)
-	{
-		return true;
 	}
 }

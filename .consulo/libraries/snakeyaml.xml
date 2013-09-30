@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="snakeyaml">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/google-py-app-engine-api/lib/snakeyaml-1.11.jar!/" />
+    </CLASSES>
+    <DOCUMENTATION />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/google-py-app-engine-api/libSrc/snakeyaml-1.11-sources.jar!/" />
+    </SOURCES>
+    <jarDirectory url="jar://$PROJECT_DIR$/google-py-app-engine-api/libSrc/snakeyaml-1.11-sources.jar!/" recursive="false" type="SOURCES" />
+  </library>
+</component>

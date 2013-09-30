@@ -1,5 +1,7 @@
 package org.consulo.google.appengine.sdk;
 
+import java.io.File;
+
 import javax.swing.Icon;
 
 import org.consulo.google.appengine.GoogleAppEngineIcons;
@@ -57,15 +59,19 @@ public abstract class GoogleAppEngineSdk extends SdkType
 
 	@Nullable
 	@Override
-	public String getVersionString(String s)
+	public abstract String getVersionString(String s);
+
+	@Override
+	public boolean isValidSdkHome(String s)
 	{
-		return "1";
+		return getVersionString(s) != null;
 	}
 
 	@Override
 	public String suggestSdkName(String s, String s2)
 	{
-		return s2;
+		File file = new File(s2);
+		return file.getName();
 	}
 
 	@Nullable

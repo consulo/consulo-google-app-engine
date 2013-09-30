@@ -1,13 +1,13 @@
 package org.consulo.google.appengine.py.sdk;
 
-import org.consulo.google.appengine.sdk.GoogleAppEngineSdk;
+import org.consulo.google.appengine.python.sdk.GoogleAppEnginePySdk;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * @author VISTALL
  * @since 27.09.13.
  */
-public class PyAppSdkType extends GoogleAppEngineSdk
+public class PyAppSdkType extends GoogleAppEnginePySdk
 {
 	public PyAppSdkType()
 	{
@@ -19,11 +19,5 @@ public class PyAppSdkType extends GoogleAppEngineSdk
 	public String getLanguageName()
 	{
 		return "Python";
-	}
-
-	@Override
-	public boolean isValidSdkHome(String s)
-	{
-		return true;
 	}
 }

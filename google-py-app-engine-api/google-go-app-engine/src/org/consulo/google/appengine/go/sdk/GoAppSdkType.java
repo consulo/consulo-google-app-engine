@@ -1,13 +1,13 @@
 package org.consulo.google.appengine.go.sdk;
 
-import org.consulo.google.appengine.sdk.GoogleAppEngineSdk;
+import org.consulo.google.appengine.python.sdk.GoogleAppEnginePySdk;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * @author VISTALL
  * @since 27.09.13.
  */
-public class GoAppSdkType extends GoogleAppEngineSdk
+public class GoAppSdkType extends GoogleAppEnginePySdk
 {
 	public GoAppSdkType()
 	{
@@ -19,11 +19,5 @@ public class GoAppSdkType extends GoogleAppEngineSdk
 	public String getLanguageName()
 	{
 		return "Go";
-	}
-
-	@Override
-	public boolean isValidSdkHome(String s)
-	{
-		return true;
 	}
 }

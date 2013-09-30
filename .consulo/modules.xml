@@ -52,10 +52,12 @@
       </module>
       <module name="google-py-app-engine-api" dirurl="file://$PROJECT_DIR$/google-py-app-engine-api">
         <extension id="java" sdk-module-name="google-app-engine-api" sdk-name="" language-level-module-name="google-app-engine-api" language-level-name="" special-dir-location="SOURCE_DIR" />
+        <extension id="lombok" />
         <extension id="consulo-plugin" sdk-module-name="google-app-engine-api" sdk-name="" custom-plugin-dir-url="L:\google-app-engine-api\dep" />
         <content url="file://$MODULE_DIR$">
           <content-folder type="PRODUCTION" url="file://$MODULE_DIR$/src" />
           <content-folder type="PRODUCTION_RESOURCE" url="file://$MODULE_DIR$/resources" />
+          <content-folder type="TEST" url="file://$MODULE_DIR$/testSrc" />
         </content>
         <orderEntry type="module-extension-sdk" extension-id="java" />
         <orderEntry type="module-extension-sdk" extension-id="consulo-plugin" />
@@ -70,6 +72,7 @@
             <SOURCES />
           </library>
         </orderEntry>
+        <orderEntry type="library" name="snakeyaml" level="project" />
       </module>
       <module name="google-go-app-engine" dirurl="file://$PROJECT_DIR$/google-py-app-engine-api/google-go-app-engine">
         <extension id="java" sdk-module-name="google-app-engine-api" sdk-name="" language-level-module-name="google-app-engine-api" language-level-name="" special-dir-location="SOURCE_DIR" />

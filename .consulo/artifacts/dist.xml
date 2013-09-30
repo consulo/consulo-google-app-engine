@@ -21,6 +21,7 @@
           <element id="zip-archive" name="google-py-app-engine-api.jar">
             <element id="module-output" name="google-py-app-engine-api" />
           </element>
+          <element id="library" level="project" name="snakeyaml" />
         </element>
       </element>
       <element id="directory" name="google-php-app-engine">
