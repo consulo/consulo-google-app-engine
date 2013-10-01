@@ -41,4 +41,11 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 	{
 		return null;
 	}
+
+	@NotNull
+	@Override
+	public GeneralCommandLine createLocalServerCommandLine(ArtifactDeploymentSource deploymentSource)
+	{
+		return null;
+	}
 }

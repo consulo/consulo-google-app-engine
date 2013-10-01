@@ -13,7 +13,7 @@ import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.remoteServer.configuration.deployment.ModuleDeploymentSource;
-import com.intellij.remoteServer.impl.configuration.deployment.ModuleDeploymentSourceImpl;
+import com.intellij.remoteServer.impl.configuration.deploySource.impl.ModuleDeploymentSourceImpl;
 
 /**
  * @author VISTALL
@@ -74,6 +74,18 @@ public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtens
 		commandLine.addParameter("update");
 		commandLine.addParameter(deploymentSource.getModule().getModuleDirPath());
 
+		return commandLine;
+	}
+
+	@NotNull
+	@Override
+	public GeneralCommandLine createLocalServerCommandLine(ModuleDeploymentSource deploymentSource)
+	{
+		GeneralCommandLine commandLine = new GeneralCommandLine();
+		commandLine.setExePath(PythonSdkType.getInstance().getExecutableFile(getRuntimeSdk()));
+		commandLine.addParameter("-u");
+		commandLine.addParameter(getSdk().getHomePath() + File.separator + "dev_appserver.py");
+		commandLine.addParameter(deploymentSource.getModule().getModuleDirPath());
 		return commandLine;
 	}
 

@@ -17,4 +17,7 @@ public interface GoogleAppEngineModuleExtension<D extends DeploymentSource, T ex
 
 	@NotNull
 	GeneralCommandLine createCommandLine(@NotNull D deploymentSource, String email, boolean oauth2);
+
+	@NotNull
+	GeneralCommandLine createLocalServerCommandLine(D deploymentSource);
 }
