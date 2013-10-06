@@ -2,7 +2,7 @@
 	<id>org.consulo.google-app-engine.php</id>
 	<name>Google App Engine PHP</name>
 	<version>1.0</version>
-	<category>Custom Languages</category>
+	<category>Web Frameworks</category>
 	<depends>org.consulo.google-app-engine.py.api</depends>
 
 	<extensions defaultExtensionNs="com.intellij">
