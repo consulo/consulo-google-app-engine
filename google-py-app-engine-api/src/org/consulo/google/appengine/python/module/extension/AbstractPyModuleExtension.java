@@ -5,7 +5,6 @@ import java.io.File;
 import org.consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 import org.consulo.module.extension.MutableModuleInheritableNamedPointer;
 import org.consulo.module.extension.impl.ModuleExtensionWithSdkImpl;
-import org.consulo.python.sdk.PythonSdkType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.configurations.GeneralCommandLine;
@@ -14,6 +13,7 @@ import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.remoteServer.configuration.deployment.ModuleDeploymentSource;
 import com.intellij.remoteServer.impl.configuration.deploySource.impl.ModuleDeploymentSourceImpl;
+import com.jetbrains.python.sdk.PythonSdkType;
 
 /**
  * @author VISTALL
@@ -57,7 +57,7 @@ public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtens
 	public GeneralCommandLine createCommandLine(@NotNull ModuleDeploymentSource deploymentSource, String email, boolean oauth2)
 	{
 		GeneralCommandLine commandLine = new GeneralCommandLine();
-		commandLine.setExePath(PythonSdkType.getInstance().getExecutableFile(getRuntimeSdk()));
+		commandLine.setExePath(PythonSdkType.getPythonExecutable(getRuntimeSdk().getHomePath()));
 		commandLine.addParameter("-u");
 		commandLine.addParameter(getSdk().getHomePath() + File.separator + "appcfg.py");
 		commandLine.addParameter("--no_cookies");
@@ -82,7 +82,7 @@ public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtens
 	public GeneralCommandLine createLocalServerCommandLine(ModuleDeploymentSource deploymentSource)
 	{
 		GeneralCommandLine commandLine = new GeneralCommandLine();
-		commandLine.setExePath(PythonSdkType.getInstance().getExecutableFile(getRuntimeSdk()));
+		commandLine.setExePath(PythonSdkType.getPythonExecutable(getRuntimeSdk().getHomePath()));
 		commandLine.addParameter("-u");
 		commandLine.addParameter(getSdk().getHomePath() + File.separator + "dev_appserver.py");
 		commandLine.addParameter(deploymentSource.getModule().getModuleDirPath());

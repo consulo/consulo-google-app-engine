@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComponent;
 
-import org.consulo.python.sdk.PythonSdkType;
 import org.consulo.sdk.SdkUtil;
 import org.consulo.util.pointers.NamedPointer;
 import org.jdom.Element;
@@ -20,6 +19,7 @@ import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Conditions;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.ui.FormBuilder;
+import com.jetbrains.python.sdk.PythonSdkType;
 
 /**
  * @author VISTALL
