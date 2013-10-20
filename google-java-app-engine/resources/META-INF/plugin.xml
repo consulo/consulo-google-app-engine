@@ -4,7 +4,12 @@
 	<version>1.0</version>
 	<category>Web Frameworks</category>
 	<depends>org.consulo.google-app-engine.api</depends>
+	<depends optional="true">com.intellij.xml</depends>
 
+	<extensions defaultExtensionNs="com.intellij.xml">
+		<schemaProvider implementation="org.consulo.google.appengine.java.descriptor.AppEngineWebSchemaProvider"/>
+		<dom.fileDescription implementation="org.consulo.google.appengine.java.descriptor.dom.AppEngineWebFileDescription"/>
+	</extensions>
 	<extensions defaultExtensionNs="com.intellij">
 		<sdkType implementation="org.consulo.google.appengine.java.sdk.JavaAppSdkType" />
 
