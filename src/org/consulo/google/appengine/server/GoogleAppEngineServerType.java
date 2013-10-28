@@ -38,7 +38,7 @@ import com.intellij.remoteServer.ServerType;
 import com.intellij.remoteServer.configuration.deployment.DeploymentConfigurator;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
 import com.intellij.remoteServer.configuration.deployment.DummyDeploymentConfiguration;
-import com.intellij.remoteServer.impl.configuration.localServer.LocalRunner;
+import com.intellij.remoteServer.configuration.localServer.LocalRunner;
 import com.intellij.remoteServer.runtime.ServerConnector;
 import com.intellij.remoteServer.runtime.ServerTaskExecutor;
 import com.intellij.remoteServer.runtime.deployment.DeploymentLogManager;

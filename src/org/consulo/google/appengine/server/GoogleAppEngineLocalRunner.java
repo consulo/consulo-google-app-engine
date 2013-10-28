@@ -15,7 +15,7 @@ import com.intellij.execution.runners.ProgramRunner;
 import com.intellij.execution.ui.ConsoleView;
 import com.intellij.remoteServer.configuration.deployment.DeploymentConfiguration;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
-import com.intellij.remoteServer.impl.configuration.localServer.LocalRunner;
+import com.intellij.remoteServer.configuration.localServer.LocalRunner;
 
 /**
  * @author VISTALL
