@@ -134,34 +134,12 @@ public class GoogleAppEngineUploader
 
 		GoogleAppEngineModuleExtension<DeploymentSource, ?> moduleExtension = mySource.getModuleExtension();
 
-		commandLine = moduleExtension.createCommandLine(mySource.getDelegate(), myEmail, false);
-		/*JavaParameters parameters = new JavaParameters();
-		parameters.configureByModule(myExtension.getModule(), JavaParameters.JDK_ONLY);
-		parameters.setMainClass("com.google.appengine.tools.admin.AppCfg");
-		parameters.getClassPath().add(AppSdkType.getToolsApiJarFile(mySdk).getAbsolutePath());
-
-		final List<KeyValue<String, String>> list = HttpConfigurable.getJvmPropertiesList(false, null);
-		if(!list.isEmpty())
-		{
-			final ParametersList parametersList = parameters.getVMParametersList();
-			for(KeyValue<String, String> value : list)
-			{
-				parametersList.defineProperty(value.getKey(), value.getValue());
-			}
-		}
-
-		final ParametersList programParameters = parameters.getProgramParametersList();
-		programParameters.add("--email=" + myEmail);
-		programParameters.add("update");
-		programParameters.add(FileUtil.toSystemDependentName(myArtifact.getOutputPath()));
-
-		commandLine = CommandLineBuilder.createFromJavaParameters(parameters);*/
-
-
 		Project project = mySource.getModuleExtension().getModule().getProject();
 
 		try
 		{
+			commandLine = moduleExtension.createCommandLine(mySource.getDelegate(), myEmail, false);
+
 			final Executor executor = DefaultRunExecutor.getRunExecutorInstance();
 
 			final ConsoleView console = TextConsoleBuilderFactory.getInstance().createBuilder(project).getConsole();

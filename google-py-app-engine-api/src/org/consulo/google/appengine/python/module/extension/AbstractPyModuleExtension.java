@@ -7,6 +7,7 @@ import org.consulo.module.extension.MutableModuleInheritableNamedPointer;
 import org.consulo.module.extension.impl.ModuleExtensionWithSdkImpl;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
@@ -79,7 +80,7 @@ public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtens
 
 	@NotNull
 	@Override
-	public GeneralCommandLine createLocalServerCommandLine(ModuleDeploymentSource deploymentSource)
+	public GeneralCommandLine createLocalServerCommandLine(ModuleDeploymentSource deploymentSource)  throws ExecutionException
 	{
 		GeneralCommandLine commandLine = new GeneralCommandLine();
 		commandLine.setExePath(PythonSdkType.getPythonExecutable(getRuntimeSdk().getHomePath()));

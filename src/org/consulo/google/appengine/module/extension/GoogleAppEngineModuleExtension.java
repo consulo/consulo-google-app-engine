@@ -3,6 +3,7 @@ package org.consulo.google.appengine.module.extension;
 import org.consulo.module.extension.ModuleExtensionWithSdk;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
 
@@ -16,8 +17,8 @@ public interface GoogleAppEngineModuleExtension<D extends DeploymentSource, T ex
 	D getDeploymentSource();
 
 	@NotNull
-	GeneralCommandLine createCommandLine(@NotNull D deploymentSource, String email, boolean oauth2);
+	GeneralCommandLine createCommandLine(@NotNull D deploymentSource, String email, boolean oauth2) throws ExecutionException;
 
 	@NotNull
-	GeneralCommandLine createLocalServerCommandLine(D deploymentSource);
+	GeneralCommandLine createLocalServerCommandLine(D deploymentSource) throws ExecutionException;
 }

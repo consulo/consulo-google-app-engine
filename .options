@@ -1,0 +1,8 @@
+<options>
+	<dep>consulo-google-go</dep>
+	<dep>consulo-java</dep>
+	<dep>consulo-java-web</dep>
+	<dep>consulo-php</dep>
+	<dep>consulo-python</dep>
+	<dep>consulo-xml</dep>
+</options>

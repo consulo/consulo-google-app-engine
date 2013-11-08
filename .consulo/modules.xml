@@ -64,6 +64,15 @@
             <SOURCES />
           </library>
         </orderEntry>
+        <orderEntry type="module-library">
+          <library name="consulo:Java Web API">
+            <CLASSES>
+              <root url="jar://$MODULE_DIR$/../dep/java-web/lib/java-web.jar!/" />
+            </CLASSES>
+            <DOCUMENTATION />
+            <SOURCES />
+          </library>
+        </orderEntry>
       </module>
       <module name="google-py-app-engine-api" dirurl="file://$PROJECT_DIR$/google-py-app-engine-api">
         <extension id="java" sdk-module-name="google-app-engine-api" sdk-name="" language-level-module-name="google-app-engine-api" language-level-name="" special-dir-location="SOURCE_DIR" />
