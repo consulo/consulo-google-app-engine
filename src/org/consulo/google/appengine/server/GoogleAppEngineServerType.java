@@ -27,6 +27,7 @@ import org.consulo.google.appengine.GoogleAppEngineIcons;
 import org.consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.mustbe.consulo.module.extension.ModuleExtensionHelper;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.module.ModuleUtilCore;
@@ -63,6 +64,12 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 	public LocalRunner getLocalRunner()
 	{
 		return new GoogleAppEngineLocalRunner();
+	}
+
+	@Override
+	public boolean isConfigurationTypeIsAvailable(@NotNull Project project)
+	{
+		return super.isConfigurationTypeIsAvailable(project) && ModuleExtensionHelper.getInstance(project).hasModuleExtension(GoogleAppEngineModuleExtension.class);
 	}
 
 	@NotNull
