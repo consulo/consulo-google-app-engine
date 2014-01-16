@@ -17,8 +17,6 @@
 package org.consulo.google.appengine.server;
 
 import org.consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
-import org.consulo.module.extension.ModuleExtensionProvider;
-import org.consulo.module.extension.ModuleExtensionProviderEP;
 import org.consulo.util.pointers.NamedPointer;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.module.Module;
@@ -67,12 +65,7 @@ public class GoogleAppEngineDeploymentSource extends DelegateDeploymentSource
 				return null;
 			}
 
-			ModuleExtensionProvider provider = ModuleExtensionProviderEP.findProvider(myModuleExtensionId);
-			if(provider == null)
-			{
-				return null;
-			}
-			myExtension = (GoogleAppEngineModuleExtension) ModuleUtilCore.getExtension(module, provider.getImmutableClass());
+			myExtension = (GoogleAppEngineModuleExtension) ModuleUtilCore.getExtension(module, myModuleExtensionId);
 		}
 
 		return myExtension;

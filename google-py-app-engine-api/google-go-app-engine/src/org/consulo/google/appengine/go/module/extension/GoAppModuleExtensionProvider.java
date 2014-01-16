@@ -28,13 +28,6 @@ public class GoAppModuleExtensionProvider extends GoogleAppEngineModuleExtension
 {
 	@NotNull
 	@Override
-	public Class<GoAppModuleExtension> getImmutableClass()
-	{
-		return GoAppModuleExtension.class;
-	}
-
-	@NotNull
-	@Override
 	public GoAppModuleExtension createImmutable(@NotNull String s, @NotNull Module module)
 	{
 		return new GoAppModuleExtension(s, module);

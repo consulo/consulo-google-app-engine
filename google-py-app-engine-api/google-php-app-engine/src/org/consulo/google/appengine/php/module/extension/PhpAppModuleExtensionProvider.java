@@ -28,13 +28,6 @@ public class PhpAppModuleExtensionProvider extends GoogleAppEngineModuleExtensio
 {
 	@NotNull
 	@Override
-	public Class<PhpAppModuleExtension> getImmutableClass()
-	{
-		return PhpAppModuleExtension.class;
-	}
-
-	@NotNull
-	@Override
 	public PhpAppModuleExtension createImmutable(@NotNull String s, @NotNull Module module)
 	{
 		return new PhpAppModuleExtension(s, module);

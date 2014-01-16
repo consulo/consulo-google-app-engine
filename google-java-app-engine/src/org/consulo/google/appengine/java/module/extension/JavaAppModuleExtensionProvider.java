@@ -28,13 +28,6 @@ public class JavaAppModuleExtensionProvider extends GoogleAppEngineModuleExtensi
 {
 	@NotNull
 	@Override
-	public Class<JavaAppModuleExtension> getImmutableClass()
-	{
-		return JavaAppModuleExtension.class;
-	}
-
-	@NotNull
-	@Override
 	public JavaAppModuleExtension createImmutable(@NotNull String s, @NotNull Module module)
 	{
 		return new JavaAppModuleExtension(s, module);

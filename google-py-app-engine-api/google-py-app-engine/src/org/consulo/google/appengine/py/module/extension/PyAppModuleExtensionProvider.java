@@ -28,13 +28,6 @@ public class PyAppModuleExtensionProvider extends GoogleAppEngineModuleExtension
 {
 	@NotNull
 	@Override
-	public Class<PyAppModuleExtension> getImmutableClass()
-	{
-		return PyAppModuleExtension.class;
-	}
-
-	@NotNull
-	@Override
 	public PyAppModuleExtension createImmutable(@NotNull String s, @NotNull Module module)
 	{
 		return new PyAppModuleExtension(s, module);
