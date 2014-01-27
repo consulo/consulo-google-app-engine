@@ -35,8 +35,8 @@ public class PhpAppModuleExtensionProvider extends GoogleAppEngineModuleExtensio
 
 	@NotNull
 	@Override
-	public PhpAppMutableModuleExtension createMutable(@NotNull String s, @NotNull Module module, @NotNull PhpAppModuleExtension phpAppModuleExtension)
+	public PhpAppMutableModuleExtension createMutable(@NotNull String s, @NotNull Module module)
 	{
-		return new PhpAppMutableModuleExtension(s, module, phpAppModuleExtension);
+		return new PhpAppMutableModuleExtension(s, module);
 	}
 }

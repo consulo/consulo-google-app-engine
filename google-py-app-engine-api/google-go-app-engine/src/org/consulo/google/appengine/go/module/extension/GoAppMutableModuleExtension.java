@@ -30,14 +30,12 @@ import com.intellij.util.ui.FormBuilder;
  */
 public class GoAppMutableModuleExtension extends GoAppModuleExtension implements MutableModuleExtensionWithSdk<GoAppModuleExtension>
 {
-	private GoAppModuleExtension myGoAppModuleExtension;
-
-	public GoAppMutableModuleExtension(@NotNull String id, @NotNull Module module, @NotNull GoAppModuleExtension goAppModuleExtension)
+	public GoAppMutableModuleExtension(@NotNull String id, @NotNull Module module)
 	{
 		super(id, module);
-		myGoAppModuleExtension = goAppModuleExtension;
 	}
 
+	@Override
 	@Nullable
 	public javax.swing.JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
 	{
@@ -47,14 +45,8 @@ public class GoAppMutableModuleExtension extends GoAppModuleExtension implements
 	}
 
 	@Override
-	public boolean isModified()
+	public boolean isModified(@NotNull GoAppModuleExtension extension)
 	{
-		return isModifiedImpl(myGoAppModuleExtension);
-	}
-
-	@Override
-	public void commit()
-	{
-		myGoAppModuleExtension.commit(this);
+		return isModifiedImpl(extension);
 	}
 }

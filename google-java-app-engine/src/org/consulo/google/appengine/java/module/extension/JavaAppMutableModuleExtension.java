@@ -56,12 +56,9 @@ import com.intellij.util.containers.ContainerUtil;
  */
 public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implements MutableModuleExtensionWithSdk<JavaAppModuleExtension>
 {
-	private JavaAppModuleExtension myJavaAppModuleExtension;
-
-	public JavaAppMutableModuleExtension(@NotNull String id, @NotNull Module module, @NotNull JavaAppModuleExtension javaAppModuleExtension)
+	public JavaAppMutableModuleExtension(@NotNull String id, @NotNull Module module)
 	{
 		super(id, module);
-		myJavaAppModuleExtension = javaAppModuleExtension;
 	}
 
 	public static JPanel createLabeledPanel(String labelText, JComponent component)
@@ -80,9 +77,9 @@ public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implem
 		return (MutableModuleInheritableNamedPointer<Sdk>) super.getInheritableSdk();
 	}
 
+	@Override
 	@Nullable
-	@SuppressWarnings("unused")
-	public javax.swing.JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
+	public JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
 	{
 		JPanel panel = new JPanel(new VerticalFlowLayout());
 		panel.add(new ModuleExtensionWithSdkPanel(this, runnable));
@@ -153,14 +150,8 @@ public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implem
 	}
 
 	@Override
-	public boolean isModified()
+	public boolean isModified(@NotNull JavaAppModuleExtension extension)
 	{
-		return isModifiedImpl(myJavaAppModuleExtension) || !Comparing.equal(myArtifactPointer, myJavaAppModuleExtension.myArtifactPointer);
-	}
-
-	@Override
-	public void commit()
-	{
-		myJavaAppModuleExtension.commit(this);
+		return isModifiedImpl(extension) || !Comparing.equal(myArtifactPointer, extension.myArtifactPointer);
 	}
 }

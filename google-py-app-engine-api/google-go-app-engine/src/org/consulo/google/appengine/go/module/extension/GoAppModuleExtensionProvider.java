@@ -35,8 +35,8 @@ public class GoAppModuleExtensionProvider extends GoogleAppEngineModuleExtension
 
 	@NotNull
 	@Override
-	public GoAppMutableModuleExtension createMutable(@NotNull String s, @NotNull Module module, @NotNull GoAppModuleExtension goAppModuleExtension)
+	public GoAppMutableModuleExtension createMutable(@NotNull String s, @NotNull Module module)
 	{
-		return new GoAppMutableModuleExtension(s, module, goAppModuleExtension);
+		return new GoAppMutableModuleExtension(s, module);
 	}
 }

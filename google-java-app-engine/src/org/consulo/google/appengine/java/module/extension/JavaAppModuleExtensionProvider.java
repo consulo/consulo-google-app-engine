@@ -35,8 +35,8 @@ public class JavaAppModuleExtensionProvider extends GoogleAppEngineModuleExtensi
 
 	@NotNull
 	@Override
-	public JavaAppMutableModuleExtension createMutable(@NotNull String s, @NotNull Module module, @NotNull JavaAppModuleExtension javaAppModuleExtension)
+	public JavaAppMutableModuleExtension createMutable(@NotNull String s, @NotNull Module module)
 	{
-		return new JavaAppMutableModuleExtension(s, module, javaAppModuleExtension);
+		return new JavaAppMutableModuleExtension(s, module);
 	}
 }

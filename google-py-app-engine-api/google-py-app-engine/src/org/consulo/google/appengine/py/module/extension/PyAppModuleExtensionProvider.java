@@ -35,8 +35,8 @@ public class PyAppModuleExtensionProvider extends GoogleAppEngineModuleExtension
 
 	@NotNull
 	@Override
-	public PyAppMutableModuleExtension createMutable(@NotNull String s, @NotNull Module module, @NotNull PyAppModuleExtension pyAppModuleExtension)
+	public PyAppMutableModuleExtension createMutable(@NotNull String s, @NotNull Module module)
 	{
-		return new PyAppMutableModuleExtension(s, module, pyAppModuleExtension);
+		return new PyAppMutableModuleExtension(s, module);
 	}
 }

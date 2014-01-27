@@ -29,30 +29,21 @@ import com.intellij.openapi.roots.ModifiableRootModel;
  */
 public class PyAppMutableModuleExtension extends PyAppModuleExtension implements MutableModuleExtensionWithSdk<PyAppModuleExtension>
 {
-	private PyAppModuleExtension myPyAppModuleExtension;
-
-	public PyAppMutableModuleExtension(@NotNull String id, @NotNull Module module, @NotNull PyAppModuleExtension pyAppModuleExtension)
+	public PyAppMutableModuleExtension(@NotNull String id, @NotNull Module module)
 	{
 		super(id, module);
-		myPyAppModuleExtension = pyAppModuleExtension;
 	}
 
+	@Override
 	@Nullable
-	@SuppressWarnings("unused")
 	public javax.swing.JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
 	{
 		return wrapToNorth(new ModuleExtensionWithSdkPanel(this, runnable));
 	}
 
 	@Override
-	public boolean isModified()
+	public boolean isModified(@NotNull PyAppModuleExtension extension)
 	{
-		return isModifiedImpl(myPyAppModuleExtension);
-	}
-
-	@Override
-	public void commit()
-	{
-		myPyAppModuleExtension.commit(this);
+		return isModifiedImpl(extension);
 	}
 }

@@ -30,14 +30,12 @@ import com.intellij.util.ui.FormBuilder;
  */
 public class PhpAppMutableModuleExtension extends PhpAppModuleExtension implements MutableModuleExtensionWithSdk<PhpAppModuleExtension>
 {
-	private PhpAppModuleExtension myPhpAppModuleExtension;
-
-	public PhpAppMutableModuleExtension(@NotNull String id, @NotNull Module module, @NotNull PhpAppModuleExtension phpAppModuleExtension)
+	public PhpAppMutableModuleExtension(@NotNull String id, @NotNull Module module)
 	{
 		super(id, module);
-		myPhpAppModuleExtension = phpAppModuleExtension;
 	}
 
+	@Override
 	@Nullable
 	public javax.swing.JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
 	{
@@ -47,14 +45,8 @@ public class PhpAppMutableModuleExtension extends PhpAppModuleExtension implemen
 	}
 
 	@Override
-	public boolean isModified()
+	public boolean isModified(@NotNull PhpAppModuleExtension extension)
 	{
-		return isModifiedImpl(myPhpAppModuleExtension);
-	}
-
-	@Override
-	public void commit()
-	{
-		myPhpAppModuleExtension.commit(this);
+		return isModifiedImpl(extension);
 	}
 }
