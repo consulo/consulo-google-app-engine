@@ -33,7 +33,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mustbe.consulo.java.web.artifact.ExplodedWarArtifactType;
 import com.intellij.icons.AllIcons;
-import com.intellij.openapi.module.Module;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.roots.ModifiableRootModel;
 import com.intellij.openapi.ui.ComboBox;
@@ -56,7 +55,7 @@ import com.intellij.util.containers.ContainerUtil;
  */
 public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implements MutableModuleExtensionWithSdk<JavaAppModuleExtension>
 {
-	public JavaAppMutableModuleExtension(@NotNull String id, @NotNull Module module)
+	public JavaAppMutableModuleExtension(@NotNull String id, @NotNull ModifiableRootModel module)
 	{
 		super(id, module);
 	}
@@ -79,12 +78,12 @@ public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implem
 
 	@Override
 	@Nullable
-	public JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
+	public JComponent createConfigurablePanel(@Nullable Runnable runnable)
 	{
 		JPanel panel = new JPanel(new VerticalFlowLayout());
 		panel.add(new ModuleExtensionWithSdkPanel(this, runnable));
 
-		Collection<? extends Artifact> artifactsByType = ArtifactManager.getInstance(modifiableRootModel.getProject()).getArtifactsByType(ExplodedWarArtifactType.getInstance());
+		Collection<? extends Artifact> artifactsByType = ArtifactManager.getInstance(getProject()).getArtifactsByType(ExplodedWarArtifactType.getInstance());
 
 		List<String> map = ContainerUtil.map(artifactsByType, new Function<Artifact, String>()
 		{

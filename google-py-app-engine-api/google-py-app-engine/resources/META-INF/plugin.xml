@@ -24,7 +24,11 @@
 	<extensions defaultExtensionNs="com.intellij">
 		<sdkType implementation="org.consulo.google.appengine.py.sdk.PyAppSdkType" />
 
-		<moduleExtensionProvider key="google-app-engine-py" parent-key="python"
-								 implementationClass="org.consulo.google.appengine.py.module.extension.PyAppModuleExtensionProvider" />
+		<moduleExtensionProvider key="google-app-engine-py"
+								 parentKey="python"
+								 icon="/icons/appEngine.png"
+								 name="Google App Engine"
+								 immutableClass="org.consulo.google.appengine.py.module.extension.PyAppModuleExtension"
+								 mutableClass="org.consulo.google.appengine.py.module.extension.PyAppMutableModuleExtension" />
 	</extensions>
 </idea-plugin>

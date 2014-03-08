@@ -24,7 +24,11 @@
 	<extensions defaultExtensionNs="com.intellij">
 		<sdkType implementation="org.consulo.google.appengine.php.sdk.PhpAppSdkType" />
 
-		<moduleExtensionProvider key="google-app-engine-php" parent-key="php"
-								 implementationClass="org.consulo.google.appengine.php.module.extension.PhpAppModuleExtensionProvider" />
+		<moduleExtensionProvider key="google-app-engine-php"
+								 parentKey="php"
+								 icon="/icons/appEngine.png"
+								 name="Google App Engine"
+								 immutableClass="org.consulo.google.appengine.php.module.extension.PhpAppModuleExtension"
+								 mutableClass="org.consulo.google.appengine.php.module.extension.PhpAppMutableModuleExtension" />
 	</extensions>
 </idea-plugin>

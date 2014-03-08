@@ -30,7 +30,11 @@
 	<extensions defaultExtensionNs="com.intellij">
 		<sdkType implementation="org.consulo.google.appengine.java.sdk.JavaAppSdkType" />
 
-		<moduleExtensionProvider key="google-app-engine-java" parent-key="java-web"
-								 implementationClass="org.consulo.google.appengine.java.module.extension.JavaAppModuleExtensionProvider" />
+		<moduleExtensionProvider key="google-app-engine-java"
+								 parentKey="java-web"
+								 icon="/icons/appEngine.png"
+								 name="Google App Engine"
+								 immutableClass="org.consulo.google.appengine.java.module.extension.JavaAppModuleExtension"
+								 mutableClass="org.consulo.google.appengine.java.module.extension.JavaAppMutableModuleExtension" />
 	</extensions>
 </idea-plugin>

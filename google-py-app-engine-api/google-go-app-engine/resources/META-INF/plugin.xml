@@ -24,7 +24,11 @@
 	<extensions defaultExtensionNs="com.intellij">
 		<sdkType implementation="org.consulo.google.appengine.go.sdk.GoAppSdkType" />
 
-		<moduleExtensionProvider key="google-app-engine-go" parent-key="google-go"
-								 implementationClass="org.consulo.google.appengine.go.module.extension.GoAppModuleExtensionProvider" />
+		<moduleExtensionProvider key="google-app-engine-go"
+								 parentKey="google-go"
+								 icon="/icons/appEngine.png"
+								 name="Google App Engine"
+								 immutableClass="org.consulo.google.appengine.go.module.extension.GoAppModuleExtension"
+								 mutableClass="org.consulo.google.appengine.go.module.extension.GoAppMutableModuleExtension" />
 	</extensions>
 </idea-plugin>

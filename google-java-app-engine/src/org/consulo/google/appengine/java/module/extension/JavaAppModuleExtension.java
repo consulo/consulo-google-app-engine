@@ -27,10 +27,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
-import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkType;
+import com.intellij.openapi.roots.ModifiableRootModel;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.packaging.artifacts.ArtifactPointer;
@@ -47,7 +47,7 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 {
 	protected ArtifactPointer myArtifactPointer;
 
-	public JavaAppModuleExtension(@NotNull String id, @NotNull Module module)
+	public JavaAppModuleExtension(@NotNull String id, @NotNull ModifiableRootModel module)
 	{
 		super(id, module);
 	}

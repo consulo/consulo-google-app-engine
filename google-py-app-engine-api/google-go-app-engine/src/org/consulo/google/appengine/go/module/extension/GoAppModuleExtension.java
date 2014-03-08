@@ -19,8 +19,8 @@ package org.consulo.google.appengine.go.module.extension;
 import org.consulo.google.appengine.go.sdk.GoAppSdkType;
 import org.consulo.google.appengine.python.module.extension.BasePyModuleExtension;
 import org.jetbrains.annotations.NotNull;
-import com.intellij.openapi.module.Module;
 import com.intellij.openapi.projectRoots.SdkType;
+import com.intellij.openapi.roots.ModifiableRootModel;
 
 /**
  * @author VISTALL
@@ -28,7 +28,7 @@ import com.intellij.openapi.projectRoots.SdkType;
  */
 public class GoAppModuleExtension extends BasePyModuleExtension<GoAppModuleExtension>
 {
-	public GoAppModuleExtension(@NotNull String id, @NotNull Module module)
+	public GoAppModuleExtension(@NotNull String id, @NotNull ModifiableRootModel module)
 	{
 		super(id, module);
 	}

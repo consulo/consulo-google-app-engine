@@ -20,7 +20,6 @@ import org.consulo.module.extension.MutableModuleExtensionWithSdk;
 import org.consulo.module.extension.ui.ModuleExtensionWithSdkPanel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import com.intellij.openapi.module.Module;
 import com.intellij.openapi.roots.ModifiableRootModel;
 import com.intellij.util.ui.FormBuilder;
 
@@ -30,14 +29,14 @@ import com.intellij.util.ui.FormBuilder;
  */
 public class PhpAppMutableModuleExtension extends PhpAppModuleExtension implements MutableModuleExtensionWithSdk<PhpAppModuleExtension>
 {
-	public PhpAppMutableModuleExtension(@NotNull String id, @NotNull Module module)
+	public PhpAppMutableModuleExtension(@NotNull String id, @NotNull ModifiableRootModel module)
 	{
 		super(id, module);
 	}
 
 	@Override
 	@Nullable
-	public javax.swing.JComponent createConfigurablePanel(@NotNull ModifiableRootModel modifiableRootModel, @Nullable Runnable runnable)
+	public javax.swing.JComponent createConfigurablePanel(@Nullable Runnable runnable)
 	{
 		return wrapToNorth(FormBuilder.createFormBuilder()
 				.addComponent(new ModuleExtensionWithSdkPanel(this, runnable))
