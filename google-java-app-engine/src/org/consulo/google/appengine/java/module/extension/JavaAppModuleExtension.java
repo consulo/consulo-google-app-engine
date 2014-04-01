@@ -52,8 +52,9 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 		super(id, module);
 	}
 
+	@NotNull
 	@Override
-	protected Class<? extends SdkType> getSdkTypeClass()
+	public Class<? extends SdkType> getSdkTypeClass()
 	{
 		return JavaAppSdkType.class;
 	}

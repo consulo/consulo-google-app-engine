@@ -42,8 +42,9 @@ public class PyAppModuleExtension extends AbstractPyModuleExtension<PyAppModuleE
 		return ModuleUtilCore.getSdk(getModule(), PyModuleExtension.class);
 	}
 
+	@NotNull
 	@Override
-	protected Class<? extends SdkType> getSdkTypeClass()
+	public Class<? extends SdkType> getSdkTypeClass()
 	{
 		return PyAppSdkType.class;
 	}

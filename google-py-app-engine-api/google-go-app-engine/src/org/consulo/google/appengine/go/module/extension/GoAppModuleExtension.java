@@ -33,8 +33,9 @@ public class GoAppModuleExtension extends BasePyModuleExtension<GoAppModuleExten
 		super(id, module);
 	}
 
+	@NotNull
 	@Override
-	protected Class<? extends SdkType> getSdkTypeClass()
+	public Class<? extends SdkType> getSdkTypeClass()
 	{
 		return GoAppSdkType.class;
 	}

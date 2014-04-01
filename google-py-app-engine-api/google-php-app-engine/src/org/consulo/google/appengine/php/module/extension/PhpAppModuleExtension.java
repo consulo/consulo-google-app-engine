@@ -33,8 +33,9 @@ public class PhpAppModuleExtension extends BasePyModuleExtension<PhpAppModuleExt
 		super(id, module);
 	}
 
+	@NotNull
 	@Override
-	protected Class<? extends SdkType> getSdkTypeClass()
+	public Class<? extends SdkType> getSdkTypeClass()
 	{
 		return PhpAppSdkType.class;
 	}
