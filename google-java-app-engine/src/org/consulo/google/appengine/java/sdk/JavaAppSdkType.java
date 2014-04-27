@@ -17,11 +17,20 @@
 package org.consulo.google.appengine.java.sdk;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 
 import org.consulo.google.appengine.sdk.GoogleAppEngineSdk;
+import org.jboss.netty.util.internal.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.intellij.execution.ExecutionException;
+import com.intellij.execution.process.ProcessOutput;
+import com.intellij.execution.util.ExecUtil;
+import com.intellij.openapi.projectRoots.JavaSdk;
 import com.intellij.openapi.projectRoots.Sdk;
+import com.intellij.openapi.projectRoots.SdkType;
+import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.io.FileUtil;
 
 /**
@@ -30,9 +39,27 @@ import com.intellij.openapi.util.io.FileUtil;
  */
 public class JavaAppSdkType extends GoogleAppEngineSdk
 {
+	public static final String APPCFG = "appcfg";
+
 	public JavaAppSdkType()
 	{
 		super("GOOGLE_APP_ENGINE_JAVA");
+	}
+
+	@NotNull
+	public static String getExecutable(String sdkHome, String file)
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append(sdkHome);
+		builder.append(File.separator);
+		builder.append("bin");
+		builder.append(File.separator);
+		builder.append(file);
+		if(SystemInfo.isWindows)
+		{
+			builder.append(".cmd");
+		}
+		return builder.toString();
 	}
 
 	public static File getWebSchemeFile(@NotNull Sdk sdk)
@@ -52,16 +79,42 @@ public class JavaAppSdkType extends GoogleAppEngineSdk
 		return "Java";
 	}
 
+	@NotNull
+	@Override
+	public SdkType getLanguageSdkType()
+	{
+		return JavaSdk.getInstance();
+	}
+
 	@Nullable
 	@Override
 	public String getVersionString(String s)
 	{
-		return "1";
+		try
+		{
+			ProcessOutput processOutput = ExecUtil.execAndGetOutput(Arrays.asList(getExecutable(s, APPCFG), "version"), s);
+			List<String> stdoutLines = processOutput.getStdoutLines();
+			if(stdoutLines.isEmpty())
+			{
+				return null;
+			}
+			String line = stdoutLines.get(0);
+			if(!line.contains(":"))
+			{
+				return null;
+			}
+			String[] split = StringUtil.split(line, ':');
+			return split[1].trim();
+		}
+		catch(ExecutionException e)
+		{
+			return null;
+		}
 	}
 
 	@Override
 	public boolean isValidSdkHome(String s)
 	{
-		return true;
+		return new File(getExecutable(s, APPCFG)).exists();
 	}
 }

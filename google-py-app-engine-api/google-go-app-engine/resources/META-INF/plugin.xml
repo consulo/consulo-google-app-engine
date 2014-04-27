@@ -20,6 +20,7 @@
 	<version>1.0</version>
 	<category>Web Frameworks</category>>
 	<depends>org.consulo.google-app-engine.py.api</depends>
+	<depends>org.consulo.google.go</depends>
 
 	<extensions defaultExtensionNs="com.intellij">
 		<sdkType implementation="org.consulo.google.appengine.go.sdk.GoAppSdkType" />

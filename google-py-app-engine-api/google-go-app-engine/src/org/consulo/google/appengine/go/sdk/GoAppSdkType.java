@@ -18,6 +18,8 @@ package org.consulo.google.appengine.go.sdk;
 
 import org.consulo.google.appengine.python.sdk.GoogleAppEnginePySdk;
 import org.jetbrains.annotations.NotNull;
+import com.intellij.openapi.projectRoots.SdkType;
+import ro.redeul.google.go.config.sdk.GoSdkType;
 
 /**
  * @author VISTALL
@@ -35,5 +37,12 @@ public class GoAppSdkType extends GoogleAppEnginePySdk
 	public String getLanguageName()
 	{
 		return "Go";
+	}
+
+	@NotNull
+	@Override
+	public SdkType getLanguageSdkType()
+	{
+		return GoSdkType.getInstance();
 	}
 }

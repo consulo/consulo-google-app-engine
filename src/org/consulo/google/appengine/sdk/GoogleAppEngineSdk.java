@@ -21,15 +21,11 @@ import java.io.File;
 import javax.swing.Icon;
 
 import org.consulo.google.appengine.GoogleAppEngineIcons;
-import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import com.intellij.openapi.projectRoots.AdditionalDataConfigurable;
-import com.intellij.openapi.projectRoots.SdkAdditionalData;
-import com.intellij.openapi.projectRoots.SdkModel;
-import com.intellij.openapi.projectRoots.SdkModificator;
 import com.intellij.openapi.projectRoots.SdkType;
+import com.intellij.openapi.roots.OrderRootType;
 
 /**
  * @author VISTALL
@@ -46,6 +42,9 @@ public abstract class GoogleAppEngineSdk extends SdkType
 	public abstract String getLanguageName();
 
 	@NotNull
+	public abstract SdkType getLanguageSdkType();
+
+	@NotNull
 	@Override
 	public String getPresentableName()
 	{
@@ -59,18 +58,17 @@ public abstract class GoogleAppEngineSdk extends SdkType
 		return null;
 	}
 
+	@Override
+	public boolean isRootTypeApplicable(OrderRootType type)
+	{
+		return getLanguageSdkType().isRootTypeApplicable(type);
+	}
+
 	@Nullable
 	@Override
 	public Icon getIcon()
 	{
 		return GoogleAppEngineIcons.AppEngine;
-	}
-
-	@Nullable
-	@Override
-	public Icon getGroupIcon()
-	{
-		return getIcon();
 	}
 
 	@Nullable
@@ -88,18 +86,5 @@ public abstract class GoogleAppEngineSdk extends SdkType
 	{
 		File file = new File(s2);
 		return file.getName();
-	}
-
-	@Nullable
-	@Override
-	public AdditionalDataConfigurable createAdditionalDataConfigurable(SdkModel sdkModel, SdkModificator sdkModificator)
-	{
-		return null;
-	}
-
-	@Override
-	public void saveAdditionalData(SdkAdditionalData sdkAdditionalData, Element element)
-	{
-
 	}
 }

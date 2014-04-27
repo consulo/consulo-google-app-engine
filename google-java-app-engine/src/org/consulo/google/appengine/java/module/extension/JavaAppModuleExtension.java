@@ -16,8 +16,6 @@
 
 package org.consulo.google.appengine.java.module.extension;
 
-import java.io.File;
-
 import org.consulo.google.appengine.java.sdk.JavaAppSdkType;
 import org.consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 import org.consulo.java.module.extension.JavaModuleExtension;
@@ -31,7 +29,6 @@ import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkType;
 import com.intellij.openapi.roots.ModifiableRootModel;
-import com.intellij.openapi.util.SystemInfo;
 import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.packaging.artifacts.ArtifactPointer;
 import com.intellij.packaging.artifacts.ArtifactPointerUtil;
@@ -125,7 +122,7 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 
 		GeneralCommandLine commandLine = new GeneralCommandLine();
 		commandLine.getEnvironment().put("JAVA_HOME", javaSdk.getHomePath());
-		commandLine.setExePath(getExecutable("appcfg"));
+		commandLine.setExePath(JavaAppSdkType.getExecutable(sdk.getHomePath(), JavaAppSdkType.APPCFG));
 		commandLine.addParameter("--no_cookies");
 		if(oauth2)
 		{
@@ -159,23 +156,8 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 
 		GeneralCommandLine commandLine = new GeneralCommandLine();
 		commandLine.getEnvironment().put("JAVA_HOME", javaSdk.getHomePath());
-		commandLine.setExePath(getExecutable("dev_appserver"));
+		commandLine.setExePath(JavaAppSdkType.getExecutable(sdk.getHomePath(), "dev_appserver"));
 		commandLine.addParameter(deploymentSource.getArtifact().getOutputPath());
 		return commandLine;
-	}
-
-	private String getExecutable(String name)
-	{
-		StringBuilder builder = new StringBuilder();
-		builder.append(getSdk().getHomePath());
-		builder.append(File.separator);
-		builder.append("bin");
-		builder.append(File.separator);
-		builder.append(name);
-		if(SystemInfo.isWindows)
-		{
-			builder.append(".cmd");
-		}
-		return builder.toString();
 	}
 }

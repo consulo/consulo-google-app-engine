@@ -20,8 +20,10 @@ import org.consulo.google.appengine.python.sdk.GoogleAppEnginePySdk;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkModificator;
+import com.intellij.openapi.projectRoots.SdkType;
 import com.intellij.openapi.roots.OrderRootType;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.jetbrains.python.sdk.PythonSdkType;
 
 /**
  * @author VISTALL
@@ -67,5 +69,12 @@ public class PyAppSdkType extends GoogleAppEnginePySdk
 	public String getLanguageName()
 	{
 		return "Python";
+	}
+
+	@NotNull
+	@Override
+	public SdkType getLanguageSdkType()
+	{
+		return PythonSdkType.getInstance();
 	}
 }
