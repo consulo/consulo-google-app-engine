@@ -1,1 +1,1 @@
-![Build Status](http://must-be.org:8080/vulcan_web/statusImage?name=consulo-google-app-engine-api)
+![Build Status](http://must-be.org/vulcan/statusImage?name=consulo-google-app-engine)
