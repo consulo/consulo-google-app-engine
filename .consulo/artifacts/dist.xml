@@ -5,8 +5,8 @@
       <element id="directory" name="google-app-engine-api">
         <element id="directory" name="lib">
           <element id="zip-archive" name="google-app-engine-api.jar">
-            <element id="module-output" name="google-app-engine-api" />
-            <element id="module-production-resource-output" name="google-app-engine-api" />
+            <element id="module-output" name="consulo-google-app-engine" />
+            <element id="module-production-resource-output" name="consulo-google-app-engine" />
           </element>
         </element>
       </element>

@@ -20,7 +20,7 @@
 	<version>1.0</version>
 	<category>Web Frameworks</category>
 	<depends>org.consulo.google-app-engine.api</depends>
-	<depends>org.mustbe.consulo.java.web</depends>
+	<depends>org.mustbe.consulo.javaee</depends>
 
 	<extensions defaultExtensionNs="com.intellij.xml">
 		<schemaProvider implementation="org.consulo.google.appengine.java.descriptor.AppEngineWebSchemaProvider"/>
