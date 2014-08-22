@@ -27,7 +27,7 @@ import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkTypeId;
-import com.intellij.openapi.roots.ModifiableRootModel;
+import com.intellij.openapi.roots.ModuleRootLayer;
 import com.intellij.openapi.roots.ui.configuration.ProjectStructureConfigurable;
 import com.intellij.openapi.roots.ui.configuration.SdkComboBox;
 import com.intellij.openapi.roots.ui.configuration.projectRoot.ProjectSdksModel;
@@ -46,7 +46,7 @@ public abstract class BasePyModuleExtension<T extends BasePyModuleExtension<T>> 
 	private static final String RUNTIME_SDK_NAME = "runtime-sdk-name";
 	protected NamedPointer<Sdk> myRuntimeSdkPointer;
 
-	public BasePyModuleExtension(@NotNull String id, @NotNull ModifiableRootModel module)
+	public BasePyModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
 	{
 		super(id, module);
 	}

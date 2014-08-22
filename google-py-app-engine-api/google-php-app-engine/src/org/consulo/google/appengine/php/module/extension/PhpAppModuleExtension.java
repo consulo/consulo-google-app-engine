@@ -20,7 +20,7 @@ import org.consulo.google.appengine.php.sdk.PhpAppSdkType;
 import org.consulo.google.appengine.python.module.extension.BasePyModuleExtension;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.projectRoots.SdkType;
-import com.intellij.openapi.roots.ModifiableRootModel;
+import com.intellij.openapi.roots.ModuleRootLayer;
 
 /**
  * @author VISTALL
@@ -28,7 +28,7 @@ import com.intellij.openapi.roots.ModifiableRootModel;
  */
 public class PhpAppModuleExtension extends BasePyModuleExtension<PhpAppModuleExtension>
 {
-	public PhpAppModuleExtension(@NotNull String id, @NotNull ModifiableRootModel module)
+	public PhpAppModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
 	{
 		super(id, module);
 	}

@@ -34,7 +34,7 @@ import org.jetbrains.annotations.Nullable;
 import org.mustbe.consulo.java.web.artifact.ExplodedWarArtifactType;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.roots.ModifiableRootModel;
+import com.intellij.openapi.roots.ModuleRootLayer;
 import com.intellij.openapi.ui.ComboBox;
 import com.intellij.openapi.ui.VerticalFlowLayout;
 import com.intellij.openapi.util.Comparing;
@@ -55,7 +55,7 @@ import com.intellij.util.containers.ContainerUtil;
  */
 public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implements MutableModuleExtensionWithSdk<JavaAppModuleExtension>
 {
-	public JavaAppMutableModuleExtension(@NotNull String id, @NotNull ModifiableRootModel module)
+	public JavaAppMutableModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
 	{
 		super(id, module);
 	}

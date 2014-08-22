@@ -20,7 +20,7 @@ import org.consulo.module.extension.MutableModuleExtensionWithSdk;
 import org.consulo.module.extension.ui.ModuleExtensionWithSdkPanel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import com.intellij.openapi.roots.ModifiableRootModel;
+import com.intellij.openapi.roots.ModuleRootLayer;
 import com.intellij.util.ui.FormBuilder;
 
 /**
@@ -29,7 +29,7 @@ import com.intellij.util.ui.FormBuilder;
  */
 public class GoAppMutableModuleExtension extends GoAppModuleExtension implements MutableModuleExtensionWithSdk<GoAppModuleExtension>
 {
-	public GoAppMutableModuleExtension(@NotNull String id, @NotNull ModifiableRootModel module)
+	public GoAppMutableModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
 	{
 		super(id, module);
 	}

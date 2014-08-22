@@ -23,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkType;
-import com.intellij.openapi.roots.ModifiableRootModel;
+import com.intellij.openapi.roots.ModuleRootLayer;
 
 /**
  * @author VISTALL
@@ -31,7 +31,7 @@ import com.intellij.openapi.roots.ModifiableRootModel;
  */
 public class PyAppModuleExtension extends AbstractPyModuleExtension<PyAppModuleExtension>
 {
-	public PyAppModuleExtension(@NotNull String id, @NotNull ModifiableRootModel module)
+	public PyAppModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
