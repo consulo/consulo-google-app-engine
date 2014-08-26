@@ -29,9 +29,13 @@ import com.intellij.execution.process.ProcessOutput;
 import com.intellij.execution.util.ExecUtil;
 import com.intellij.openapi.projectRoots.JavaSdk;
 import com.intellij.openapi.projectRoots.Sdk;
+import com.intellij.openapi.projectRoots.SdkModificator;
 import com.intellij.openapi.projectRoots.SdkType;
+import com.intellij.openapi.roots.types.BinariesOrderRootType;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.io.FileUtil;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.vfs.util.ArchiveVfsUtil;
 
 /**
  * @author VISTALL
@@ -44,6 +48,30 @@ public class JavaAppSdkType extends GoogleAppEngineSdk
 	public JavaAppSdkType()
 	{
 		super("GOOGLE_APP_ENGINE_JAVA");
+	}
+
+	@Override
+	public void setupSdkPaths(Sdk sdk)
+	{
+		SdkModificator sdkModificator = sdk.getSdkModificator();
+
+		VirtualFile homeDirectory = sdk.getHomeDirectory();
+
+		VirtualFile sharedDir = homeDirectory.findFileByRelativePath("lib/shared");
+
+		if(sharedDir != null)
+		{
+			for(VirtualFile virtualFile : sharedDir.getChildren())
+			{
+				VirtualFile archiveRootForLocalFile = ArchiveVfsUtil.getArchiveRootForLocalFile(virtualFile);
+				if(archiveRootForLocalFile != null)
+				{
+					sdkModificator.addRoot(archiveRootForLocalFile, BinariesOrderRootType.getInstance());
+				}
+			}
+		}
+
+		sdkModificator.commitChanges();
 	}
 
 	@NotNull
