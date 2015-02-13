@@ -141,8 +141,8 @@ public class JavaAppSdkType extends GoogleAppEngineSdk
 	}
 
 	@Override
-	public boolean isValidSdkHome(String s)
+	public boolean isValidSdkHome(String path)
 	{
-		return new File(getExecutable(s, APPCFG)).exists();
+		return new File(getExecutable(path, APPCFG)).exists();
 	}
 }

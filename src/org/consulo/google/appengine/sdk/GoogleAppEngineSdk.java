@@ -51,13 +51,6 @@ public abstract class GoogleAppEngineSdk extends SdkType
 		return String.format("Google App Engine (%s)", getLanguageName());
 	}
 
-	@Nullable
-	@Override
-	public String suggestHomePath()
-	{
-		return null;
-	}
-
 	@Override
 	public boolean isRootTypeApplicable(OrderRootType type)
 	{
@@ -76,15 +69,15 @@ public abstract class GoogleAppEngineSdk extends SdkType
 	public abstract String getVersionString(String s);
 
 	@Override
-	public boolean isValidSdkHome(String s)
+	public boolean isValidSdkHome(String path)
 	{
-		return getVersionString(s) != null;
+		return getVersionString(path) != null;
 	}
 
 	@Override
-	public String suggestSdkName(String s, String s2)
+	public String suggestSdkName(String currentSdkName, String sdkHome)
 	{
-		File file = new File(s2);
+		File file = new File(sdkHome);
 		return file.getName();
 	}
 }
