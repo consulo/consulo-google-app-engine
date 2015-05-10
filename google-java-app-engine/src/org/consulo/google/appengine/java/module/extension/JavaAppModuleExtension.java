@@ -18,11 +18,11 @@ package org.consulo.google.appengine.java.module.extension;
 
 import org.consulo.google.appengine.java.sdk.JavaAppSdkType;
 import org.consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
-import org.consulo.java.module.extension.JavaModuleExtension;
 import org.consulo.module.extension.impl.ModuleExtensionWithSdkImpl;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.mustbe.consulo.java.module.extension.JavaModuleExtension;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.openapi.module.ModuleUtilCore;
