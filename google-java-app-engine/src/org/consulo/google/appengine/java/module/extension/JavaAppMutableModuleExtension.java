@@ -16,7 +16,6 @@
 
 package org.consulo.google.appengine.java.module.extension;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collection;
@@ -28,14 +27,16 @@ import javax.swing.JPanel;
 
 import org.consulo.module.extension.MutableModuleExtensionWithSdk;
 import org.consulo.module.extension.MutableModuleInheritableNamedPointer;
-import org.consulo.module.extension.ui.ModuleExtensionWithSdkPanel;
+import org.consulo.module.extension.ui.ModuleExtensionSdkBoxBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.mustbe.consulo.RequiredDispatchThread;
 import org.mustbe.consulo.java.web.artifact.ExplodedWarArtifactType;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.roots.ModuleRootLayer;
 import com.intellij.openapi.ui.ComboBox;
+import com.intellij.openapi.ui.LabeledComponent;
 import com.intellij.openapi.ui.VerticalFlowLayout;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.text.StringUtil;
@@ -45,7 +46,6 @@ import com.intellij.packaging.artifacts.ArtifactPointerUtil;
 import com.intellij.ui.CollectionComboBoxModel;
 import com.intellij.ui.ColoredListCellRenderer;
 import com.intellij.ui.SimpleTextAttributes;
-import com.intellij.ui.components.JBLabel;
 import com.intellij.util.Function;
 import com.intellij.util.containers.ContainerUtil;
 
@@ -60,15 +60,6 @@ public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implem
 		super(id, module);
 	}
 
-	public static JPanel createLabeledPanel(String labelText, JComponent component)
-	{
-		final JPanel panel = new JPanel(new BorderLayout());
-		final JBLabel label = new JBLabel(labelText);
-		panel.add(label, BorderLayout.WEST);
-		panel.add(component, BorderLayout.CENTER);
-		return panel;
-	}
-
 	@NotNull
 	@Override
 	public MutableModuleInheritableNamedPointer<Sdk> getInheritableSdk()
@@ -78,10 +69,11 @@ public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implem
 
 	@Override
 	@Nullable
+	@RequiredDispatchThread
 	public JComponent createConfigurablePanel(@Nullable Runnable runnable)
 	{
 		JPanel panel = new JPanel(new VerticalFlowLayout());
-		panel.add(new ModuleExtensionWithSdkPanel(this, runnable));
+		panel.add(ModuleExtensionSdkBoxBuilder.createAndDefine(this, runnable).build());
 
 		Collection<? extends Artifact> artifactsByType = ArtifactManager.getInstance(getProject()).getArtifactsByType(ExplodedWarArtifactType.getInstance());
 
@@ -137,9 +129,9 @@ public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implem
 			}
 		});
 
-		panel.add(createLabeledPanel("Artifact: ", box));
+		panel.add(LabeledComponent.left(box, "Artifact"));
 
-		return wrapToNorth(panel);
+		return panel;
 	}
 
 	@Override
