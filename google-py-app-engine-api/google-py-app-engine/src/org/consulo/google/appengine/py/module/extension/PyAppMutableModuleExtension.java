@@ -16,28 +16,35 @@
 
 package org.consulo.google.appengine.py.module.extension;
 
+import javax.swing.JComponent;
+
 import org.consulo.module.extension.MutableModuleExtensionWithSdk;
-import org.consulo.module.extension.ui.ModuleExtensionWithSdkPanel;
+import org.consulo.module.extension.ui.ModuleExtensionSdkBoxBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.mustbe.consulo.RequiredDispatchThread;
 import com.intellij.openapi.roots.ModuleRootLayer;
+import com.intellij.util.ui.JBUI;
 
 /**
  * @author VISTALL
  * @since 27.09.13.
  */
-public class PyAppMutableModuleExtension extends PyAppModuleExtension implements MutableModuleExtensionWithSdk<PyAppModuleExtension>
+public class PyAppMutableModuleExtension extends PyAppModuleExtension implements
+		MutableModuleExtensionWithSdk<PyAppModuleExtension>
 {
 	public PyAppMutableModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
 
+	@RequiredDispatchThread
 	@Override
 	@Nullable
-	public javax.swing.JComponent createConfigurablePanel(@Nullable Runnable runnable)
+	public JComponent createConfigurablePanel(@Nullable Runnable runnable)
 	{
-		return wrapToNorth(new ModuleExtensionWithSdkPanel(this, runnable));
+		return JBUI.Panels.verticalPanel().addComponent(ModuleExtensionSdkBoxBuilder.createAndDefine(this,
+				runnable).build());
 	}
 
 	@Override

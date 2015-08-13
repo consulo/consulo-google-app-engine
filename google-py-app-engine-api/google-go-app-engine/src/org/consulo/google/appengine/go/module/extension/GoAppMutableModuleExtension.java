@@ -16,12 +16,16 @@
 
 package org.consulo.google.appengine.go.module.extension;
 
+import javax.swing.JComponent;
+
 import org.consulo.module.extension.MutableModuleExtensionWithSdk;
-import org.consulo.module.extension.ui.ModuleExtensionWithSdkPanel;
+import org.consulo.module.extension.ui.ModuleExtensionSdkBoxBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.mustbe.consulo.RequiredDispatchThread;
 import com.intellij.openapi.roots.ModuleRootLayer;
-import com.intellij.util.ui.FormBuilder;
+import com.intellij.util.ui.JBUI;
+import com.intellij.util.ui.components.VerticalLayoutPanel;
 
 /**
  * @author VISTALL
@@ -34,13 +38,15 @@ public class GoAppMutableModuleExtension extends GoAppModuleExtension implements
 		super(id, module);
 	}
 
+	@RequiredDispatchThread
 	@Override
 	@Nullable
-	public javax.swing.JComponent createConfigurablePanel( @Nullable Runnable runnable)
+	public JComponent createConfigurablePanel( @Nullable Runnable runnable)
 	{
-		return wrapToNorth(FormBuilder.createFormBuilder()
-				.addComponent(new ModuleExtensionWithSdkPanel(this, runnable))
-				.addComponent(createRuntimeCheckBox()).getPanel());
+		VerticalLayoutPanel verticalLayoutPanel = JBUI.Panels.verticalPanel();
+		verticalLayoutPanel.addComponent(ModuleExtensionSdkBoxBuilder.createAndDefine(this,runnable).build());
+		verticalLayoutPanel.addComponent(createRuntimeCheckBox());
+		return verticalLayoutPanel;
 	}
 
 	@Override
