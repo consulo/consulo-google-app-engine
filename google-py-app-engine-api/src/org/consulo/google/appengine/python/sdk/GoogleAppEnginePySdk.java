@@ -21,11 +21,11 @@ import java.io.FileInputStream;
 import java.util.LinkedHashMap;
 
 import org.consulo.google.appengine.sdk.GoogleAppEngineSdk;
-import org.consulo.lombok.annotations.Logger;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.Nullable;
 import org.yaml.snakeyaml.Yaml;
 import com.intellij.openapi.application.ApplicationManager;
+import consulo.lombok.annotations.Logger;
 
 /**
  * @author VISTALL
