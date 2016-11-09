@@ -2,7 +2,7 @@
   <artifact build-on-make="true" name="dist">
     <output-path>$PROJECT_DIR$/out/artifacts/dist</output-path>
     <root id="root">
-      <element id="directory" name="google-app-engine-api">
+      <element id="directory" name="consulo.google-app-engine.api">
         <element id="directory" name="lib">
           <element id="zip-archive" name="google-app-engine-api.jar">
             <element id="module-output" name="consulo-google-app-engine" />
@@ -10,7 +10,7 @@
           </element>
         </element>
       </element>
-      <element id="directory" name="google-py-app-engine">
+      <element id="directory" name="consulo.google-app-engine.py">
         <element id="directory" name="lib">
           <element id="zip-archive" name="google-py-app-engine.jar">
             <element id="module-output" name="google-py-app-engine" />
@@ -18,7 +18,7 @@
           </element>
         </element>
       </element>
-      <element id="directory" name="google-py-app-engine-api">
+      <element id="directory" name="consulo.google-app-engine.py.api">
         <element id="directory" name="lib">
           <element id="zip-archive" name="google-py-app-engine-api.jar">
             <element id="module-output" name="google-py-app-engine-api" />
@@ -27,7 +27,7 @@
           <element id="library" level="project" name="snakeyaml" />
         </element>
       </element>
-      <element id="directory" name="google-php-app-engine">
+      <element id="directory" name="consulo.google-app-engine.php">
         <element id="directory" name="lib">
           <element id="zip-archive" name="google-php-app-engine.jar">
             <element id="module-output" name="google-php-app-engine" />
@@ -35,7 +35,7 @@
           </element>
         </element>
       </element>
-      <element id="directory" name="google-go-app-engine">
+      <element id="directory" name="consulo.google-app-engine.go">
         <element id="directory" name="lib">
           <element id="zip-archive" name="google-go-app-engine.jar">
             <element id="module-output" name="google-go-app-engine" />
@@ -43,7 +43,7 @@
           </element>
         </element>
       </element>
-      <element id="directory" name="google-java-app-engine">
+      <element id="directory" name="consulo.google-app-engine.java">
         <element id="directory" name="lib">
           <element id="zip-archive" name="google-java-app-engine.jar">
             <element id="module-output" name="google-java-app-engine" />
