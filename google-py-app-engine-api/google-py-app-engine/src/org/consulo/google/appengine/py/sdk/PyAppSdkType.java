@@ -21,9 +21,9 @@ import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkModificator;
 import com.intellij.openapi.projectRoots.SdkType;
-import com.intellij.openapi.roots.types.BinariesOrderRootType;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.jetbrains.python.sdk.PythonSdkType;
+import consulo.roots.types.BinariesOrderRootType;
 
 /**
  * @author VISTALL

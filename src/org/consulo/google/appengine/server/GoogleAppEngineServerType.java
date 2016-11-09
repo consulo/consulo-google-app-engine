@@ -27,7 +27,6 @@ import org.consulo.google.appengine.GoogleAppEngineIcons;
 import org.consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.consulo.module.extension.ModuleExtensionHelper;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.module.ModuleUtilCore;
@@ -47,6 +46,7 @@ import com.intellij.remoteServer.runtime.deployment.DeploymentTask;
 import com.intellij.remoteServer.runtime.deployment.ServerRuntimeInstance;
 import com.intellij.util.SmartList;
 import com.intellij.util.ui.FormBuilder;
+import consulo.module.extension.ModuleExtensionHelper;
 
 /**
  * @author nik

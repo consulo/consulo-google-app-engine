@@ -14,13 +14,13 @@
   ~ limitations under the License.
   -->
 
-<idea-plugin version="2">
+<idea-plugin>
 	<id>org.consulo.google-app-engine.java</id>
 	<name>Google App Engine Java</name>
 	<version>1.0</version>
 	<category>Web Frameworks</category>
 	<depends>org.consulo.google-app-engine.api</depends>
-	<depends>org.mustbe.consulo.javaee</depends>
+	<depends>consulo.javaee</depends>
 
 	<extensions defaultExtensionNs="com.intellij.xml">
 		<schemaProvider implementation="org.consulo.google.appengine.java.descriptor.AppEngineWebSchemaProvider"/>

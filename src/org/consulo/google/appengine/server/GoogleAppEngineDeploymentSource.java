@@ -17,14 +17,14 @@
 package org.consulo.google.appengine.server;
 
 import org.consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
-import org.consulo.util.pointers.NamedPointer;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.project.Project;
-import com.intellij.remoteServer.configuration.deployment.DelegateDeploymentSource;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSourceType;
+import consulo.remoteServer.configuration.deployment.DelegateDeploymentSource;
+import consulo.util.pointers.NamedPointer;
 
 /**
  * @author VISTALL

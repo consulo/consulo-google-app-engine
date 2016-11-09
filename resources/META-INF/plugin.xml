@@ -14,7 +14,7 @@
   ~ limitations under the License.
   -->
 
-<idea-plugin version="2">
+<idea-plugin>
 	<id>org.consulo.google-app-engine.api</id>
 	<name>Google App Engine API</name>
 	<version>1.0</version>

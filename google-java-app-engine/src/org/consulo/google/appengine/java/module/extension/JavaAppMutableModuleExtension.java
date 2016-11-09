@@ -25,16 +25,10 @@ import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
-import org.consulo.module.extension.MutableModuleExtensionWithSdk;
-import org.consulo.module.extension.MutableModuleInheritableNamedPointer;
-import org.consulo.module.extension.ui.ModuleExtensionSdkBoxBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.consulo.RequiredDispatchThread;
-import org.mustbe.consulo.java.web.artifact.ExplodedWarArtifactType;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.roots.ModuleRootLayer;
 import com.intellij.openapi.ui.ComboBox;
 import com.intellij.openapi.ui.LabeledComponent;
 import com.intellij.openapi.ui.VerticalFlowLayout;
@@ -42,12 +36,18 @@ import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.packaging.artifacts.ArtifactManager;
-import com.intellij.packaging.artifacts.ArtifactPointerUtil;
 import com.intellij.ui.CollectionComboBoxModel;
 import com.intellij.ui.ColoredListCellRenderer;
 import com.intellij.ui.SimpleTextAttributes;
 import com.intellij.util.Function;
 import com.intellij.util.containers.ContainerUtil;
+import consulo.annotations.RequiredDispatchThread;
+import consulo.extension.ui.ModuleExtensionSdkBoxBuilder;
+import consulo.javaee.artifact.ExplodedWarArtifactType;
+import consulo.module.extension.MutableModuleExtensionWithSdk;
+import consulo.module.extension.MutableModuleInheritableNamedPointer;
+import consulo.packaging.artifacts.ArtifactPointerUtil;
+import consulo.roots.ModuleRootLayer;
 
 /**
  * @author VISTALL

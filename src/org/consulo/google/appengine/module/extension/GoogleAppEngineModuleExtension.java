@@ -16,12 +16,12 @@
 
 package org.consulo.google.appengine.module.extension;
 
-import org.consulo.module.extension.ModuleExtensionWithSdk;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
+import consulo.module.extension.ModuleExtensionWithSdk;
 
 /**
  * @author VISTALL

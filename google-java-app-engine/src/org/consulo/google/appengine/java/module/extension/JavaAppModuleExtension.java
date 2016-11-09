@@ -18,22 +18,22 @@ package org.consulo.google.appengine.java.module.extension;
 
 import org.consulo.google.appengine.java.sdk.JavaAppSdkType;
 import org.consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
-import org.consulo.module.extension.impl.ModuleExtensionWithSdkImpl;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.mustbe.consulo.java.module.extension.JavaModuleExtension;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkType;
-import com.intellij.openapi.roots.ModuleRootLayer;
 import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.packaging.artifacts.ArtifactPointer;
-import com.intellij.packaging.artifacts.ArtifactPointerUtil;
 import com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource;
 import com.intellij.remoteServer.impl.configuration.deploySource.impl.ArtifactDeploymentSourceImpl;
+import consulo.extension.impl.ModuleExtensionWithSdkImpl;
+import consulo.java.module.extension.JavaModuleExtension;
+import consulo.packaging.artifacts.ArtifactPointerUtil;
+import consulo.roots.ModuleRootLayer;
 
 /**
  * @author VISTALL

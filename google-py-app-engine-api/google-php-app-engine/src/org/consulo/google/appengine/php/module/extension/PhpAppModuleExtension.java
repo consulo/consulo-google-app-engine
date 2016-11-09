@@ -20,7 +20,7 @@ import org.consulo.google.appengine.php.sdk.PhpAppSdkType;
 import org.consulo.google.appengine.python.module.extension.BasePyModuleExtension;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.projectRoots.SdkType;
-import com.intellij.openapi.roots.ModuleRootLayer;
+import consulo.roots.ModuleRootLayer;
 
 /**
  * @author VISTALL

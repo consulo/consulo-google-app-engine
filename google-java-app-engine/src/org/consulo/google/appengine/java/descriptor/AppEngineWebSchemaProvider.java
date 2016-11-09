@@ -22,7 +22,6 @@ import java.util.Set;
 
 import org.consulo.google.appengine.java.module.extension.JavaAppModuleExtension;
 import org.consulo.google.appengine.java.sdk.JavaAppSdkType;
-import org.consulo.psi.PsiPackage;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -38,6 +37,7 @@ import com.intellij.psi.PsiManager;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.xml.XmlSchemaProvider;
+import consulo.psi.PsiPackage;
 
 /**
  * @author nik

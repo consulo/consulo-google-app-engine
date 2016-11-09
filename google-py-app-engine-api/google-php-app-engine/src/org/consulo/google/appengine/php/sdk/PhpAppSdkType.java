@@ -17,9 +17,9 @@
 package org.consulo.google.appengine.php.sdk;
 
 import org.consulo.google.appengine.python.sdk.GoogleAppEnginePySdk;
-import org.consulo.php.sdk.PhpSdkType;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.projectRoots.SdkType;
+import consulo.php.sdk.PhpSdkType;
 
 /**
  * @author VISTALL

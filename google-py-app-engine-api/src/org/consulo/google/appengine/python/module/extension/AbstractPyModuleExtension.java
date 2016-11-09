@@ -19,18 +19,18 @@ package org.consulo.google.appengine.python.module.extension;
 import java.io.File;
 
 import org.consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
-import org.consulo.module.extension.MutableModuleInheritableNamedPointer;
-import org.consulo.module.extension.impl.ModuleExtensionWithSdkImpl;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.roots.ModuleRootLayer;
 import com.intellij.remoteServer.configuration.deployment.ModuleDeploymentSource;
 import com.intellij.remoteServer.impl.configuration.deploySource.impl.ModuleDeploymentSourceImpl;
 import com.jetbrains.python.sdk.PythonSdkType;
+import consulo.extension.impl.ModuleExtensionWithSdkImpl;
+import consulo.module.extension.MutableModuleInheritableNamedPointer;
+import consulo.roots.ModuleRootLayer;
 
 /**
  * @author VISTALL

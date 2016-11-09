@@ -14,13 +14,13 @@
   ~ limitations under the License.
   -->
 
-<idea-plugin version="2">
+<idea-plugin>
 	<id>org.consulo.google-app-engine.php</id>
 	<name>Google App Engine PHP</name>
 	<version>1.0</version>
 	<category>Web Frameworks</category>
 	<depends>org.consulo.google-app-engine.py.api</depends>
-	<depends>org.consulo.php</depends>
+	<depends>consulo.php</depends>
 
 	<extensions defaultExtensionNs="com.intellij">
 		<sdkType implementation="org.consulo.google.appengine.php.sdk.PhpAppSdkType" />

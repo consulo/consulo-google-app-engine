@@ -21,21 +21,21 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComponent;
 
-import org.consulo.util.pointers.NamedPointer;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
-import org.mustbe.consulo.sdk.SdkUtil;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkTypeId;
-import com.intellij.openapi.roots.ModuleRootLayer;
 import com.intellij.openapi.roots.ui.configuration.ProjectStructureConfigurable;
-import com.intellij.openapi.roots.ui.configuration.SdkComboBox;
 import com.intellij.openapi.roots.ui.configuration.projectRoot.ProjectSdksModel;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Conditions;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.ui.FormBuilder;
 import com.jetbrains.python.sdk.PythonSdkType;
+import consulo.bundle.SdkUtil;
+import consulo.roots.ModuleRootLayer;
+import consulo.roots.ui.configuration.SdkComboBox;
+import consulo.util.pointers.NamedPointer;
 
 /**
  * @author VISTALL

@@ -17,8 +17,6 @@ package org.consulo.google.appengine.java.descriptor.dom;
 
 import org.consulo.google.appengine.java.descriptor.AppEngineXmlConstants;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import com.intellij.openapi.module.Module;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.util.xml.DomFileDescription;
 
@@ -33,7 +31,7 @@ public class AppEngineWebFileDescription extends DomFileDescription<AppEngineWeb
 	}
 
 	@Override
-	public boolean isMyFile(@NotNull XmlFile file, @Nullable Module module)
+	public boolean isMyFile(@NotNull XmlFile file)
 	{
 		return file.getName().equals(AppEngineXmlConstants.APP_ENGINE_WEB_XML_NAME);
 	}

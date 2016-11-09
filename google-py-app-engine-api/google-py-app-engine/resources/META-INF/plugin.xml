@@ -14,7 +14,7 @@
   ~ limitations under the License.
   -->
 
-<idea-plugin version="2">
+<idea-plugin>
 	<id>org.consulo.google-app-engine.py</id>
 	<name>Google App Engine Python</name>
 	<version>1.0</version>

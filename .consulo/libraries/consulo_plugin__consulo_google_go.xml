@@ -1,0 +1,7 @@
+<component name="libraryTable">
+  <library name="consulo-plugin: consulo.google.go" type="consulo-plugin">
+    <binaries>
+      <root url="jar://$PROJECT_DIR$/dep/consulo.google.go/lib/consulo.google.go.jar!/" />
+    </binaries>
+  </library>
+</component>
