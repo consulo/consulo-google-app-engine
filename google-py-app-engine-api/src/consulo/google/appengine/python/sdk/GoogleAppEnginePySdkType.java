@@ -24,16 +24,17 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.Nullable;
 import org.yaml.snakeyaml.Yaml;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.diagnostic.Logger;
 import consulo.google.appengine.sdk.GoogleAppEngineSdkType;
-import consulo.lombok.annotations.Logger;
 
 /**
  * @author VISTALL
  * @since 30.09.13.
  */
-@Logger
 public abstract class GoogleAppEnginePySdkType extends GoogleAppEngineSdkType
 {
+	private static final Logger LOGGER = Logger.getInstance(GoogleAppEnginePySdkType.class);
+
 	public GoogleAppEnginePySdkType(@NonNls String name)
 	{
 		super(name);
