@@ -16,10 +16,10 @@
 
 package consulo.google.appengine.go.sdk;
 
-import org.jetbrains.annotations.NotNull;
+import com.goide.sdk.GoSdkType;
 import com.intellij.openapi.projectRoots.SdkType;
 import consulo.google.appengine.python.sdk.GoogleAppEnginePySdkType;
-import ro.redeul.google.go.config.sdk.GoSdkType;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author VISTALL
