@@ -1,1 +1,1 @@
-![Build Status](http://must-be.org/vulcan/statusImage?name=consulo-google-app-engine)
+[![Build Status](https://ci.consulo.io/job/consulo-google-app-engine/badge/icon)](https://ci.consulo.io/job/consulo-google-app-engine/)
