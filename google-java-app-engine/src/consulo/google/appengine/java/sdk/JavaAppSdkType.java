@@ -16,14 +16,6 @@
 
 package consulo.google.appengine.java.sdk;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.List;
-
-import consulo.google.appengine.sdk.GoogleAppEngineSdkType;
-import org.jboss.netty.util.internal.StringUtil;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.process.ProcessOutput;
 import com.intellij.execution.util.ExecUtil;
@@ -33,9 +25,17 @@ import com.intellij.openapi.projectRoots.SdkModificator;
 import com.intellij.openapi.projectRoots.SdkType;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.io.FileUtil;
+import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.VirtualFile;
+import consulo.google.appengine.sdk.GoogleAppEngineSdkType;
 import consulo.roots.types.BinariesOrderRootType;
 import consulo.vfs.util.ArchiveVfsUtil;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author VISTALL
@@ -131,8 +131,8 @@ public class JavaAppSdkType extends GoogleAppEngineSdkType
 			{
 				return null;
 			}
-			String[] split = StringUtil.split(line, ':');
-			return split[1].trim();
+			List<String> split = StringUtil.split(line, ":");
+			return split.get(1).trim();
 		}
 		catch(ExecutionException e)
 		{
