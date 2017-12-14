@@ -2,7 +2,6 @@
   <library name="consulo-plugin: consulo.php" type="consulo-plugin">
     <binaries>
       <root url="jar://$PROJECT_DIR$/dep/consulo.php/lib/php.jar!/" />
-      <root url="jar://$PROJECT_DIR$/dep/consulo.php/lib/commons-compress-1.5.jar!/" />
     </binaries>
   </library>
 </component>
