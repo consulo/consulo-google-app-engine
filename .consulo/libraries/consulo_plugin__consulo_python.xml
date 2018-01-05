@@ -1,9 +1,12 @@
 <component name="libraryTable">
   <library name="consulo-plugin: consulo.python" type="consulo-plugin">
     <binaries>
-      <root url="jar://$PROJECT_DIR$/dep/consulo.python/lib/python.jar!/" />
-      <root url="jar://$PROJECT_DIR$/dep/consulo.python/lib/python-rest.jar!/" />
-      <root url="jar://$PROJECT_DIR$/dep/consulo.python/lib/python-intelliLang.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dep/consulo.python/lib/consulo.python-2-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dep/consulo.python/lib/consulo.python-python.impl-2-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dep/consulo.python/lib/consulo.python-python.rest-2-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dep/consulo.python/lib/consulo.python-python.psi.api-2-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dep/consulo.python/lib/consulo.python-python.debugger-2-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dep/consulo.python/lib/consulo.python-python.intelliLang-2-SNAPSHOT.jar!/" />
     </binaries>
   </library>
 </component>
