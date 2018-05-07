@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="consulo-plugin: consulo.php" type="consulo-plugin">
+  <library name="consulo-plugin: consulo.php">
     <binaries>
       <root url="jar://$PROJECT_DIR$/dep/consulo.php/lib/consulo.php-2-SNAPSHOT.jar!/" />
     </binaries>

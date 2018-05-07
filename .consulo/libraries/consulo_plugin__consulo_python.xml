@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="consulo-plugin: consulo.python" type="consulo-plugin">
+  <library name="consulo-plugin: consulo.python">
     <binaries>
       <root url="jar://$PROJECT_DIR$/dep/consulo.python/lib/consulo.python-2-SNAPSHOT.jar!/" />
       <root url="jar://$PROJECT_DIR$/dep/consulo.python/lib/consulo.python-python.impl-2-SNAPSHOT.jar!/" />

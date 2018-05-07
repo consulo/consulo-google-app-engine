@@ -16,9 +16,8 @@
 
 package consulo.google.appengine;
 
-import javax.swing.Icon;
-
 import com.intellij.openapi.util.IconLoader;
+import consulo.ui.image.Image;
 
 /**
  * @author VISTALL
@@ -26,5 +25,5 @@ import com.intellij.openapi.util.IconLoader;
  */
 public interface GoogleAppEngineIcons
 {
-	Icon AppEngine = IconLoader.findIcon("/icons/appEngine.png");
+	Image AppEngine = IconLoader.findIcon("/icons/appEngine.png");
 }

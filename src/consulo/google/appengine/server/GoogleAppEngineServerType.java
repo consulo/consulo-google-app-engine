@@ -18,7 +18,6 @@ package consulo.google.appengine.server;
 import java.awt.Dimension;
 import java.util.List;
 
-import javax.swing.Icon;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
 
@@ -46,6 +45,7 @@ import com.intellij.util.ui.FormBuilder;
 import consulo.google.appengine.GoogleAppEngineIcons;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 import consulo.module.extension.ModuleExtensionHelper;
+import consulo.ui.image.Image;
 
 /**
  * @author nik
@@ -80,7 +80,7 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 
 	@NotNull
 	@Override
-	public Icon getIcon()
+	public Image getIcon()
 	{
 		return GoogleAppEngineIcons.AppEngine;
 	}
