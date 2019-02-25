@@ -20,10 +20,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.util.ui.JBUI;
 import consulo.annotations.RequiredDispatchThread;
+import consulo.desktop.util.awt.component.VerticalLayoutPanel;
 import consulo.extension.ui.ModuleExtensionSdkBoxBuilder;
 import consulo.module.extension.MutableModuleExtensionWithSdk;
 import consulo.roots.ModuleRootLayer;
-import consulo.util.ui.components.VerticalLayoutPanel;
 
 /**
  * @author VISTALL
