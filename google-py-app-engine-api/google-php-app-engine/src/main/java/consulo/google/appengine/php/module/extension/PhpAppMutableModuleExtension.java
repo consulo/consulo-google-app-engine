@@ -16,14 +16,14 @@
 
 package consulo.google.appengine.php.module.extension;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.util.ui.JBUI;
-import consulo.annotations.RequiredDispatchThread;
 import consulo.desktop.util.awt.component.VerticalLayoutPanel;
 import consulo.extension.ui.ModuleExtensionSdkBoxBuilder;
 import consulo.module.extension.MutableModuleExtensionWithSdk;
 import consulo.roots.ModuleRootLayer;
+import consulo.ui.annotation.RequiredUIAccess;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @author VISTALL
@@ -36,7 +36,7 @@ public class PhpAppMutableModuleExtension extends PhpAppModuleExtension implemen
 		super(id, module);
 	}
 
-	@RequiredDispatchThread
+	@RequiredUIAccess
 	@Override
 	@Nullable
 	public javax.swing.JComponent createConfigurablePanel(@Nullable Runnable runnable)

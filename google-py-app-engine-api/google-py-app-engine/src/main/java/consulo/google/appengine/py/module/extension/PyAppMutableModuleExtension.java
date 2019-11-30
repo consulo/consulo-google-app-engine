@@ -16,15 +16,15 @@
 
 package consulo.google.appengine.py.module.extension;
 
-import javax.swing.JComponent;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import com.intellij.util.ui.JBUI;
-import consulo.annotations.RequiredDispatchThread;
 import consulo.extension.ui.ModuleExtensionSdkBoxBuilder;
 import consulo.module.extension.MutableModuleExtensionWithSdk;
 import consulo.roots.ModuleRootLayer;
+import consulo.ui.annotation.RequiredUIAccess;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import javax.swing.*;
 
 /**
  * @author VISTALL
@@ -37,7 +37,7 @@ public class PyAppMutableModuleExtension extends PyAppModuleExtension implements
 		super(id, module);
 	}
 
-	@RequiredDispatchThread
+	@RequiredUIAccess
 	@Override
 	@Nullable
 	public JComponent createConfigurablePanel(@Nullable Runnable runnable)
