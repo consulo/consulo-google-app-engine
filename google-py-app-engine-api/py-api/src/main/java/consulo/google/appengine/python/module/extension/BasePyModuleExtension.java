@@ -19,14 +19,14 @@ package consulo.google.appengine.python.module.extension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.projectRoots.Sdk;
+import com.intellij.openapi.projectRoots.SdkModel;
 import com.intellij.openapi.projectRoots.SdkTypeId;
 import com.intellij.openapi.roots.ui.configuration.ProjectStructureConfigurable;
-import com.intellij.openapi.roots.ui.configuration.projectRoot.ProjectSdksModel;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Conditions;
 import com.intellij.openapi.util.text.StringUtil;
@@ -54,7 +54,7 @@ public abstract class BasePyModuleExtension<T extends BasePyModuleExtension<T>> 
 	@NotNull
 	protected JComponent createRuntimeCheckBox()
 	{
-		ProjectSdksModel model = ProjectStructureConfigurable.getInstance(getModule().getProject()).getProjectSdksModel();
+		SdkModel model = ProjectStructureConfigurable.getInstance(getModule().getProject()).getProjectSdksModel();
 
 		final SdkComboBox box = new SdkComboBox(model, Conditions.<SdkTypeId>is(PythonSdkType.getInstance()), true);
 		if(myRuntimeSdkPointer == null)
