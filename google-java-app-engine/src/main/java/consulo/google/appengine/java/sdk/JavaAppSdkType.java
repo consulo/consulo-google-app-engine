@@ -20,8 +20,8 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.process.ProcessOutput;
 import com.intellij.execution.util.ExecUtil;
@@ -74,7 +74,7 @@ public class JavaAppSdkType extends GoogleAppEngineSdkType
 		sdkModificator.commitChanges();
 	}
 
-	@NotNull
+	@Nonnull
 	public static String getExecutable(String sdkHome, String file)
 	{
 		StringBuilder builder = new StringBuilder();
@@ -90,24 +90,24 @@ public class JavaAppSdkType extends GoogleAppEngineSdkType
 		return builder.toString();
 	}
 
-	public static File getWebSchemeFile(@NotNull Sdk sdk)
+	public static File getWebSchemeFile(@Nonnull Sdk sdk)
 	{
 		return getWebSchemeFile(sdk.getHomePath());
 	}
 
-	public static File getWebSchemeFile(@NotNull String home)
+	public static File getWebSchemeFile(@Nonnull String home)
 	{
 		return new File(FileUtil.toSystemDependentName(home + "/docs/appengine-web.xsd"));
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getLanguageName()
 	{
 		return "Java";
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public SdkType getLanguageSdkType()
 	{

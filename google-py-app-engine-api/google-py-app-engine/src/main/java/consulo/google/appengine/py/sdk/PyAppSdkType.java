@@ -16,8 +16,9 @@
 
 package consulo.google.appengine.py.sdk;
 
+import javax.annotation.Nonnull;
+
 import consulo.google.appengine.python.sdk.GoogleAppEnginePySdkType;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkModificator;
 import com.intellij.openapi.projectRoots.SdkType;
@@ -64,14 +65,14 @@ public class PyAppSdkType extends GoogleAppEnginePySdkType
 		sdkModificator.commitChanges();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getLanguageName()
 	{
 		return "Python";
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public SdkType getLanguageSdkType()
 	{

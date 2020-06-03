@@ -16,6 +16,15 @@
 
 package consulo.google.appengine.java.module.extension;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Collection;
+import java.util.List;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.ui.ComboBox;
@@ -30,44 +39,49 @@ import com.intellij.ui.ColoredListCellRenderer;
 import com.intellij.ui.SimpleTextAttributes;
 import com.intellij.util.Function;
 import com.intellij.util.containers.ContainerUtil;
+import consulo.disposer.Disposable;
 import consulo.extension.ui.ModuleExtensionSdkBoxBuilder;
 import consulo.javaee.artifact.ExplodedWarArtifactType;
 import consulo.module.extension.MutableModuleExtensionWithSdk;
 import consulo.module.extension.MutableModuleInheritableNamedPointer;
+import consulo.module.extension.swing.SwingMutableModuleExtension;
 import consulo.packaging.artifacts.ArtifactPointerUtil;
 import consulo.roots.ModuleRootLayer;
+import consulo.ui.Component;
+import consulo.ui.Label;
 import consulo.ui.annotation.RequiredUIAccess;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Collection;
-import java.util.List;
+import consulo.ui.layout.VerticalLayout;
 
 /**
  * @author VISTALL
  * @since 27.09.13.
  */
-public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implements MutableModuleExtensionWithSdk<JavaAppModuleExtension>
+public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implements MutableModuleExtensionWithSdk<JavaAppModuleExtension>, SwingMutableModuleExtension
 {
-	public JavaAppMutableModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
+	public JavaAppMutableModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public MutableModuleInheritableNamedPointer<Sdk> getInheritableSdk()
 	{
 		return (MutableModuleInheritableNamedPointer<Sdk>) super.getInheritableSdk();
 	}
 
-	@Override
-	@Nullable
 	@RequiredUIAccess
-	public JComponent createConfigurablePanel(@Nullable Runnable runnable)
+	@Nullable
+	@Override
+	public Component createConfigurationComponent(@Nonnull Disposable disposable, @Nonnull Runnable runnable)
+	{
+		return VerticalLayout.create().add(Label.create("Unsupported platform"));
+	}
+
+	@RequiredUIAccess
+	@Nullable
+	@Override
+	public JComponent createConfigurablePanel(@Nonnull Disposable disposable, @Nonnull Runnable runnable)
 	{
 		JPanel panel = new JPanel(new VerticalFlowLayout());
 		panel.add(ModuleExtensionSdkBoxBuilder.createAndDefine(this, runnable).build());
@@ -138,7 +152,7 @@ public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implem
 	}
 
 	@Override
-	public boolean isModified(@NotNull JavaAppModuleExtension extension)
+	public boolean isModified(@Nonnull JavaAppModuleExtension extension)
 	{
 		return isModifiedImpl(extension) || !Comparing.equal(myArtifactPointer, extension.myArtifactPointer);
 	}

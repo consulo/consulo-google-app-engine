@@ -16,9 +16,12 @@
 
 package consulo.google.appengine.java.module.extension;
 
+import javax.annotation.Nonnull;
+
 import org.jdom.Element;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
+
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.openapi.module.ModuleUtilCore;
@@ -44,12 +47,12 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 {
 	protected ArtifactPointer myArtifactPointer;
 
-	public JavaAppModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
+	public JavaAppModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Class<? extends SdkType> getSdkTypeClass()
 	{
@@ -68,7 +71,7 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 	}
 
 	@Override
-	public void commit(@NotNull JavaAppModuleExtension mutableModuleExtension)
+	public void commit(@Nonnull JavaAppModuleExtension mutableModuleExtension)
 	{
 		super.commit(mutableModuleExtension);
 
@@ -82,7 +85,7 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 	}
 
 	@Override
-	protected void loadStateImpl(@NotNull Element element)
+	protected void loadStateImpl(@Nonnull Element element)
 	{
 		super.loadStateImpl(element);
 
@@ -94,7 +97,7 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 	}
 
 	@Override
-	protected void getStateImpl(@NotNull Element element)
+	protected void getStateImpl(@Nonnull Element element)
 	{
 		super.getStateImpl(element);
 
@@ -104,9 +107,9 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 		}
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public GeneralCommandLine createCommandLine(@NotNull ArtifactDeploymentSource deploymentSource, String email, boolean oauth2) throws ExecutionException
+	public GeneralCommandLine createCommandLine(@Nonnull ArtifactDeploymentSource deploymentSource, String email, boolean oauth2) throws ExecutionException
 	{
 		Sdk javaSdk = ModuleUtilCore.getSdk(getModule(), JavaModuleExtension.class);
 		if(javaSdk == null)
@@ -138,7 +141,7 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 		return commandLine;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public GeneralCommandLine createLocalServerCommandLine(ArtifactDeploymentSource deploymentSource)  throws ExecutionException
 	{

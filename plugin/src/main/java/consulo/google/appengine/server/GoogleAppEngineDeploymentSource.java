@@ -16,7 +16,8 @@
 
 package consulo.google.appengine.server;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.project.Project;
@@ -92,7 +93,7 @@ public class GoogleAppEngineDeploymentSource extends DelegateDeploymentSource
 		return myModuleExtensionId;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DeploymentSourceType<?> getType()
 	{

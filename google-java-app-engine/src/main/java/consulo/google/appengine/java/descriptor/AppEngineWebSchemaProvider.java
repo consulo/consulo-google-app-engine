@@ -20,9 +20,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.annotation.Nonnull;
+
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.projectRoots.Sdk;
@@ -47,7 +49,7 @@ public class AppEngineWebSchemaProvider extends XmlSchemaProvider
 	private static final Set<String> FILE_NAMES = new HashSet<String>(Arrays.asList(AppEngineXmlConstants.APP_ENGINE_WEB_XML_NAME, AppEngineXmlConstants.JDO_CONFIG_XML_NAME));
 
 	@Override
-	public boolean isAvailable(@NotNull XmlFile file)
+	public boolean isAvailable(@Nonnull XmlFile file)
 	{
 		if(!FILE_NAMES.contains(file.getName()))
 		{
@@ -58,7 +60,7 @@ public class AppEngineWebSchemaProvider extends XmlSchemaProvider
 	}
 
 	@Override
-	public XmlFile getSchema(@NotNull @NonNls String url, @Nullable Module module, @NotNull PsiFile baseFile)
+	public XmlFile getSchema(@Nonnull @NonNls String url, @Nullable Module module, @Nonnull PsiFile baseFile)
 	{
 		if(module == null)
 		{

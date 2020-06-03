@@ -16,15 +16,16 @@
 
 package consulo.google.appengine.py.module.extension;
 
-import com.intellij.util.ui.JBUI;
-import consulo.extension.ui.ModuleExtensionSdkBoxBuilder;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import consulo.disposer.Disposable;
+import consulo.extension.ui.ModuleExtensionBundleBoxBuilder;
 import consulo.module.extension.MutableModuleExtensionWithSdk;
 import consulo.roots.ModuleRootLayer;
+import consulo.ui.Component;
 import consulo.ui.annotation.RequiredUIAccess;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import javax.swing.*;
+import consulo.ui.layout.VerticalLayout;
 
 /**
  * @author VISTALL
@@ -32,22 +33,23 @@ import javax.swing.*;
  */
 public class PyAppMutableModuleExtension extends PyAppModuleExtension implements MutableModuleExtensionWithSdk<PyAppModuleExtension>
 {
-	public PyAppMutableModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
+	public PyAppMutableModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
 
 	@RequiredUIAccess
-	@Override
 	@Nullable
-	public JComponent createConfigurablePanel(@Nullable Runnable runnable)
+	@Override
+	public Component createConfigurationComponent(@Nonnull Disposable disposable, @Nonnull Runnable runnable)
 	{
-		return JBUI.Panels.verticalPanel().addComponent(ModuleExtensionSdkBoxBuilder.createAndDefine(this,
-				runnable).build());
+		VerticalLayout verticalLayout = VerticalLayout.create();
+		verticalLayout.add(ModuleExtensionBundleBoxBuilder.createAndDefine(this, disposable, runnable).build());
+		return verticalLayout;
 	}
 
 	@Override
-	public boolean isModified(@NotNull PyAppModuleExtension extension)
+	public boolean isModified(@Nonnull PyAppModuleExtension extension)
 	{
 		return isModifiedImpl(extension);
 	}

@@ -16,7 +16,8 @@
 
 package consulo.google.appengine.php.module.extension;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.openapi.projectRoots.SdkType;
 import consulo.google.appengine.php.sdk.PhpAppSdkType;
 import consulo.google.appengine.python.module.extension.BasePyModuleExtension;
@@ -28,12 +29,12 @@ import consulo.roots.ModuleRootLayer;
  */
 public class PhpAppModuleExtension extends BasePyModuleExtension<PhpAppModuleExtension>
 {
-	public PhpAppModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
+	public PhpAppModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Class<? extends SdkType> getSdkTypeClass()
 	{

@@ -16,9 +16,10 @@
 
 package consulo.google.appengine.py.module.extension;
 
+import javax.annotation.Nonnull;
+
 import consulo.google.appengine.py.sdk.PyAppSdkType;
 import consulo.google.appengine.python.module.extension.AbstractPyModuleExtension;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.module.ModuleUtilCore;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkType;
@@ -31,7 +32,7 @@ import consulo.roots.ModuleRootLayer;
  */
 public class PyAppModuleExtension extends AbstractPyModuleExtension<PyAppModuleExtension>
 {
-	public PyAppModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
+	public PyAppModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
@@ -42,7 +43,7 @@ public class PyAppModuleExtension extends AbstractPyModuleExtension<PyAppModuleE
 		return ModuleUtilCore.getSdk(getModule(), PyModuleExtension.class);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Class<? extends SdkType> getSdkTypeClass()
 	{

@@ -16,41 +16,54 @@
 
 package consulo.google.appengine.go.module.extension;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+
 import com.intellij.util.ui.JBUI;
 import consulo.desktop.util.awt.component.VerticalLayoutPanel;
+import consulo.disposer.Disposable;
 import consulo.extension.ui.ModuleExtensionSdkBoxBuilder;
 import consulo.module.extension.MutableModuleExtensionWithSdk;
+import consulo.module.extension.swing.SwingMutableModuleExtension;
 import consulo.roots.ModuleRootLayer;
+import consulo.ui.Component;
+import consulo.ui.Label;
 import consulo.ui.annotation.RequiredUIAccess;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import javax.swing.*;
+import consulo.ui.layout.VerticalLayout;
 
 /**
  * @author VISTALL
  * @since 27.09.13.
  */
-public class GoAppMutableModuleExtension extends GoAppModuleExtension implements MutableModuleExtensionWithSdk<GoAppModuleExtension>
+public class GoAppMutableModuleExtension extends GoAppModuleExtension implements MutableModuleExtensionWithSdk<GoAppModuleExtension>, SwingMutableModuleExtension
 {
-	public GoAppMutableModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
+	public GoAppMutableModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
 
 	@RequiredUIAccess
-	@Override
 	@Nullable
-	public JComponent createConfigurablePanel( @Nullable Runnable runnable)
+	@Override
+	public Component createConfigurationComponent(@Nonnull Disposable disposable, @Nonnull Runnable runnable)
+	{
+		return VerticalLayout.create().add(Label.create("Unsupported platform"));
+	}
+
+	@RequiredUIAccess
+	@Nullable
+	@Override
+	public JComponent createConfigurablePanel(@Nonnull Disposable disposable, @Nonnull Runnable runnable)
 	{
 		VerticalLayoutPanel verticalLayoutPanel = JBUI.Panels.verticalPanel();
-		verticalLayoutPanel.addComponent(ModuleExtensionSdkBoxBuilder.createAndDefine(this,runnable).build());
+		verticalLayoutPanel.addComponent(ModuleExtensionSdkBoxBuilder.createAndDefine(this, runnable).build());
 		verticalLayoutPanel.addComponent(createRuntimeCheckBox());
 		return verticalLayoutPanel;
 	}
 
 	@Override
-	public boolean isModified(@NotNull GoAppModuleExtension extension)
+	public boolean isModified(@Nonnull GoAppModuleExtension extension)
 	{
 		return isModifiedImpl(extension);
 	}

@@ -21,8 +21,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.CommonBundle;
 import com.intellij.ide.passwordSafe.PasswordSafe;
 import com.intellij.ide.passwordSafe.PasswordSafeException;
@@ -44,9 +44,10 @@ public class GoogleAppEngineAccountDialog extends DialogWrapper {
   private JPasswordField myPasswordField;
   private JTextField myUserEmailField;
   private final Project myProject;
-  @Nullable private final GoogleAppEngineServerConfiguration myConfiguration;
+  @Nullable
+  private final GoogleAppEngineServerConfiguration myConfiguration;
 
-  public GoogleAppEngineAccountDialog(@NotNull Project project, @Nullable GoogleAppEngineServerConfiguration configuration) {
+  public GoogleAppEngineAccountDialog(@Nonnull Project project, @Nullable GoogleAppEngineServerConfiguration configuration) {
     super(project);
     myProject = project;
     myConfiguration = configuration;
@@ -74,7 +75,7 @@ public class GoogleAppEngineAccountDialog extends DialogWrapper {
   }
 
   @Nullable
-  public static String getStoredEmail(@Nullable GoogleAppEngineServerConfiguration configuration, @NotNull Project project) {
+  public static String getStoredEmail(@Nullable GoogleAppEngineServerConfiguration configuration, @Nonnull Project project) {
     if (configuration != null) {
       return configuration.getEmail();
     }

@@ -46,11 +46,12 @@ import com.intellij.remoteServer.runtime.log.LoggingHandler;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 import consulo.google.appengine.server.ui.GoogleAppEngineAccountDialog;
 import consulo.util.dataholder.Key;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
 
 import java.io.OutputStream;
 import java.io.PrintWriter;
+
+import javax.annotation.Nullable;
 
 /**
  * @author nik
@@ -73,7 +74,7 @@ public class GoogleAppEngineUploader
 	}
 
 	@Nullable
-	public static GoogleAppEngineUploader createUploader(@NotNull GoogleAppEngineDeploymentSource source, @Nullable GoogleAppEngineServerConfiguration configuration, @NotNull ServerRuntimeInstance.DeploymentOperationCallback callback, @Nullable LoggingHandler loggingHandler)
+	public static GoogleAppEngineUploader createUploader(@Nonnull GoogleAppEngineDeploymentSource source, @Nullable GoogleAppEngineServerConfiguration configuration, @Nonnull ServerRuntimeInstance.DeploymentOperationCallback callback, @Nullable LoggingHandler loggingHandler)
 	{
 		GoogleAppEngineModuleExtension extension = source.getModuleExtension();
 		Project project = extension.getModule().getProject();
@@ -111,7 +112,7 @@ public class GoogleAppEngineUploader
 		FileDocumentManager.getInstance().saveAllDocuments();
 		ProgressManager.getInstance().run(new Task.Backgroundable(mySource.getModuleExtension().getModule().getProject(), "Uploading application", true, null)
 		{
-			public void run(@NotNull ProgressIndicator indicator)
+			public void run(@Nonnull ProgressIndicator indicator)
 			{
 				ApplicationManager.getApplication().invokeLater(new Runnable()
 				{
@@ -204,7 +205,7 @@ public class GoogleAppEngineUploader
 					}
 
 					@Override
-					public void undeploy(@NotNull UndeploymentTaskCallback callback)
+					public void undeploy(@Nonnull UndeploymentTaskCallback callback)
 					{
 					}
 				});

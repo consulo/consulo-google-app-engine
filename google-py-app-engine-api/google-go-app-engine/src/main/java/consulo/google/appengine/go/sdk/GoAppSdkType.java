@@ -16,7 +16,8 @@
 
 package consulo.google.appengine.go.sdk;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.goide.sdk.GoSdkType;
 import com.intellij.openapi.projectRoots.SdkType;
 import consulo.google.appengine.python.sdk.GoogleAppEnginePySdkType;
@@ -32,14 +33,14 @@ public class GoAppSdkType extends GoogleAppEnginePySdkType
 		super("GOOGLE_APP_ENGINE_GO");
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getLanguageName()
 	{
 		return "Go";
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public SdkType getLanguageSdkType()
 	{

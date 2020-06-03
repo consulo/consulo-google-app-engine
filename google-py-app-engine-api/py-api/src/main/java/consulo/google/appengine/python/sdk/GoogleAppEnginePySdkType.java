@@ -21,7 +21,7 @@ import java.io.FileInputStream;
 import java.util.LinkedHashMap;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import org.yaml.snakeyaml.Yaml;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.diagnostic.Logger;

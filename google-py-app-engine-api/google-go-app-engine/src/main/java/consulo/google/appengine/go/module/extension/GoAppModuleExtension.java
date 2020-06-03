@@ -16,9 +16,10 @@
 
 package consulo.google.appengine.go.module.extension;
 
+import javax.annotation.Nonnull;
+
 import consulo.google.appengine.go.sdk.GoAppSdkType;
 import consulo.google.appengine.python.module.extension.BasePyModuleExtension;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.projectRoots.SdkType;
 import consulo.roots.ModuleRootLayer;
 
@@ -28,12 +29,12 @@ import consulo.roots.ModuleRootLayer;
  */
 public class GoAppModuleExtension extends BasePyModuleExtension<GoAppModuleExtension>
 {
-	public GoAppModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
+	public GoAppModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Class<? extends SdkType> getSdkTypeClass()
 	{

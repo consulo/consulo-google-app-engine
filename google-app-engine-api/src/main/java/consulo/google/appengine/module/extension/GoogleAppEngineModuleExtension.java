@@ -16,8 +16,9 @@
 
 package consulo.google.appengine.module.extension;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
@@ -32,9 +33,9 @@ public interface GoogleAppEngineModuleExtension<D extends DeploymentSource, T ex
 	@Nullable
 	D getDeploymentSource();
 
-	@NotNull
-	GeneralCommandLine createCommandLine(@NotNull D deploymentSource, String email, boolean oauth2) throws ExecutionException;
+	@Nonnull
+	GeneralCommandLine createCommandLine(@Nonnull D deploymentSource, String email, boolean oauth2) throws ExecutionException;
 
-	@NotNull
+	@Nonnull
 	GeneralCommandLine createLocalServerCommandLine(D deploymentSource) throws ExecutionException;
 }

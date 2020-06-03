@@ -18,8 +18,8 @@ package consulo.google.appengine.python.module.extension;
 
 import java.io.File;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.openapi.module.ModuleUtilCore;
@@ -38,14 +38,14 @@ import consulo.roots.ModuleRootLayer;
  */
 public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtension<T>> extends ModuleExtensionWithSdkImpl<T> implements GoogleAppEngineModuleExtension<ModuleDeploymentSource, T>
 {
-	public AbstractPyModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
+	public AbstractPyModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
 
 	public abstract Sdk getRuntimeSdk();
 
-	@NotNull
+	@Nonnull
 	@Override
 	public MutableModuleInheritableNamedPointer<Sdk> getInheritableSdk()
 	{
@@ -67,9 +67,9 @@ public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtens
 		return new ModuleDeploymentSourceImpl(ModuleUtilCore.createPointer(getModule()));
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public GeneralCommandLine createCommandLine(@NotNull ModuleDeploymentSource deploymentSource, String email, boolean oauth2)
+	public GeneralCommandLine createCommandLine(@Nonnull ModuleDeploymentSource deploymentSource, String email, boolean oauth2)
 	{
 		GeneralCommandLine commandLine = new GeneralCommandLine();
 		commandLine.setExePath(PythonSdkType.getPythonExecutable(getRuntimeSdk().getHomePath()));
@@ -92,7 +92,7 @@ public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtens
 		return commandLine;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public GeneralCommandLine createLocalServerCommandLine(ModuleDeploymentSource deploymentSource) throws ExecutionException
 	{

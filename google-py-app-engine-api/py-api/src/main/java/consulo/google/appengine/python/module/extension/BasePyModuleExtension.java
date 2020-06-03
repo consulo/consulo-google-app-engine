@@ -19,10 +19,10 @@ package consulo.google.appengine.python.module.extension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.annotation.Nonnull;
 import javax.swing.*;
 
 import org.jdom.Element;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkModel;
 import com.intellij.openapi.projectRoots.SdkTypeId;
@@ -46,12 +46,12 @@ public abstract class BasePyModuleExtension<T extends BasePyModuleExtension<T>> 
 	private static final String RUNTIME_SDK_NAME = "runtime-sdk-name";
 	protected NamedPointer<Sdk> myRuntimeSdkPointer;
 
-	public BasePyModuleExtension(@NotNull String id, @NotNull ModuleRootLayer module)
+	public BasePyModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
 		super(id, module);
 	}
 
-	@NotNull
+	@Nonnull
 	protected JComponent createRuntimeCheckBox()
 	{
 		SdkModel model = ProjectStructureConfigurable.getInstance(getModule().getProject()).getProjectSdksModel();
@@ -81,7 +81,7 @@ public abstract class BasePyModuleExtension<T extends BasePyModuleExtension<T>> 
 	}
 
 	@Override
-	public void commit(@NotNull T mutableModuleExtension)
+	public void commit(@Nonnull T mutableModuleExtension)
 	{
 		super.commit(mutableModuleExtension);
 
@@ -101,7 +101,7 @@ public abstract class BasePyModuleExtension<T extends BasePyModuleExtension<T>> 
 	}
 
 	@Override
-	protected void getStateImpl(@NotNull Element element)
+	protected void getStateImpl(@Nonnull Element element)
 	{
 		super.getStateImpl(element);
 
@@ -112,7 +112,7 @@ public abstract class BasePyModuleExtension<T extends BasePyModuleExtension<T>> 
 	}
 
 	@Override
-	protected void loadStateImpl(@NotNull Element element)
+	protected void loadStateImpl(@Nonnull Element element)
 	{
 		super.loadStateImpl(element);
 

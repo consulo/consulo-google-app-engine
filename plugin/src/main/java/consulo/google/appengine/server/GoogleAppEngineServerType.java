@@ -18,11 +18,11 @@ package consulo.google.appengine.server;
 import java.awt.Dimension;
 import java.util.List;
 
+import javax.annotation.Nonnull;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.module.ModuleUtilCore;
@@ -66,47 +66,47 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 	}
 
 	@Override
-	public boolean isConfigurationTypeIsAvailable(@NotNull Project project)
+	public boolean isConfigurationTypeIsAvailable(@Nonnull Project project)
 	{
 		return super.isConfigurationTypeIsAvailable(project) && ModuleExtensionHelper.getInstance(project).hasModuleExtension(GoogleAppEngineModuleExtension.class);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getPresentableName()
 	{
 		return "Google App Engine";
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public Image getIcon()
 	{
 		return GoogleAppEngineIcons.AppEngine;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public GoogleAppEngineServerConfiguration createDefaultConfiguration()
 	{
 		return new GoogleAppEngineServerConfiguration();
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public UnnamedConfigurable createConfigurable(@NotNull GoogleAppEngineServerConfiguration configuration)
+	public UnnamedConfigurable createConfigurable(@Nonnull GoogleAppEngineServerConfiguration configuration)
 	{
 		return new AppEngineCloudConfigurable(configuration);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public ServerConnector<?> createConnector(@NotNull GoogleAppEngineServerConfiguration configuration, @NotNull ServerTaskExecutor asyncTasksExecutor)
+	public ServerConnector<?> createConnector(@Nonnull GoogleAppEngineServerConfiguration configuration, @Nonnull ServerTaskExecutor asyncTasksExecutor)
 	{
 		return new AppEngineServerConnector(configuration);
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public DeploymentConfigurator createDeploymentConfigurator(Project project)
 	{
@@ -165,7 +165,7 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 			myProject = project;
 		}
 
-		@NotNull
+		@Nonnull
 		@Override
 		public List<DeploymentSource> getAvailableDeploymentSources()
 		{
@@ -189,15 +189,15 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 			return list;
 		}
 
-		@NotNull
+		@Nonnull
 		@Override
-		public DummyDeploymentConfiguration createDefaultConfiguration(@NotNull DeploymentSource source)
+		public DummyDeploymentConfiguration createDefaultConfiguration(@Nonnull DeploymentSource source)
 		{
 			return new DummyDeploymentConfiguration();
 		}
 
 		@Override
-		public SettingsEditor<DummyDeploymentConfiguration> createEditor(@NotNull DeploymentSource source)
+		public SettingsEditor<DummyDeploymentConfiguration> createEditor(@Nonnull DeploymentSource source)
 		{
 			return null;
 		}
@@ -213,7 +213,7 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 		}
 
 		@Override
-		public void connect(@NotNull final ConnectionCallback<DummyDeploymentConfiguration> callback)
+		public void connect(@Nonnull final ConnectionCallback<DummyDeploymentConfiguration> callback)
 		{
 			callback.connected(new AppEngineRuntimeInstance(myConfiguration));
 		}
@@ -229,7 +229,7 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 		}
 
 		@Override
-		public void deploy(@NotNull DeploymentTask<DummyDeploymentConfiguration> task, @NotNull DeploymentLogManager logManager, @NotNull DeploymentOperationCallback callback)
+		public void deploy(@Nonnull DeploymentTask<DummyDeploymentConfiguration> task, @Nonnull DeploymentLogManager logManager, @Nonnull DeploymentOperationCallback callback)
 		{
 			GoogleAppEngineDeploymentSource source = (GoogleAppEngineDeploymentSource) task.getSource();
 
@@ -241,7 +241,7 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 		}
 
 		@Override
-		public void computeDeployments(@NotNull ComputeDeploymentsCallback callback)
+		public void computeDeployments(@Nonnull ComputeDeploymentsCallback callback)
 		{
 			callback.succeeded();
 		}

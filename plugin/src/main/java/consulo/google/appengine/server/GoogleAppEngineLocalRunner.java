@@ -16,7 +16,8 @@
 
 package consulo.google.appengine.server;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.intellij.execution.DefaultExecutionResult;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.ExecutionResult;
@@ -40,11 +41,11 @@ import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 public class GoogleAppEngineLocalRunner implements LocalRunner
 {
 	@Override
-	public ExecutionResult execute(@NotNull DeploymentSource d,
+	public ExecutionResult execute(@Nonnull DeploymentSource d,
 			DeploymentConfiguration deploymentConfiguration,
 			ExecutionEnvironment executionEnvironment,
-			@NotNull Executor executor,
-			@NotNull ProgramRunner programRunner) throws ExecutionException
+			@Nonnull Executor executor,
+			@Nonnull ProgramRunner programRunner) throws ExecutionException
 	{
 		GoogleAppEngineDeploymentSource deploymentSource = (GoogleAppEngineDeploymentSource) d;
 

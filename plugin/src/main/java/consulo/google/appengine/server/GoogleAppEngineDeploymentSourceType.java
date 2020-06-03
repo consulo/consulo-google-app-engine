@@ -16,8 +16,9 @@
 
 package consulo.google.appengine.server;
 
+import javax.annotation.Nonnull;
+
 import org.jdom.Element;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.project.Project;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
 import com.intellij.remoteServer.configuration.deployment.DeploymentSourceType;
@@ -45,9 +46,9 @@ public class GoogleAppEngineDeploymentSourceType extends DeploymentSourceType<Go
 		return null;
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
-	public GoogleAppEngineDeploymentSource load(@NotNull Element element, @NotNull Project project)
+	public GoogleAppEngineDeploymentSource load(@Nonnull Element element, @Nonnull Project project)
 	{
 		DeploymentSourceType delegate = byId(element.getAttributeValue("delegate"));
 
@@ -62,7 +63,7 @@ public class GoogleAppEngineDeploymentSourceType extends DeploymentSourceType<Go
 	}
 
 	@Override
-	public void save(@NotNull GoogleAppEngineDeploymentSource deploymentSource, @NotNull Element element)
+	public void save(@Nonnull GoogleAppEngineDeploymentSource deploymentSource, @Nonnull Element element)
 	{
 		DeploymentSource delegate = deploymentSource.getDelegate();
 

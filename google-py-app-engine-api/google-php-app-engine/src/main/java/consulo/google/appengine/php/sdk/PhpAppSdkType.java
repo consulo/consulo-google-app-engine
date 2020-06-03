@@ -16,8 +16,9 @@
 
 package consulo.google.appengine.php.sdk;
 
+import javax.annotation.Nonnull;
+
 import consulo.google.appengine.python.sdk.GoogleAppEnginePySdkType;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.projectRoots.SdkType;
 import consulo.php.sdk.PhpSdkType;
 
@@ -32,14 +33,14 @@ public class PhpAppSdkType extends GoogleAppEnginePySdkType
 		super("GOOGLE_APP_ENGINE_PHP");
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getLanguageName()
 	{
 		return "PHP";
 	}
 
-	@NotNull
+	@Nonnull
 	@Override
 	public SdkType getLanguageSdkType()
 	{

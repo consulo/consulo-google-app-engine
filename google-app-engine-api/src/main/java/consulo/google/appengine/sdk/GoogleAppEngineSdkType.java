@@ -19,8 +19,9 @@ package consulo.google.appengine.sdk;
 import java.io.File;
 
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.intellij.openapi.projectRoots.SdkType;
 import com.intellij.openapi.roots.OrderRootType;
 import consulo.google.appengine.GoogleAppEngineIcons;
@@ -37,13 +38,13 @@ public abstract class GoogleAppEngineSdkType extends SdkType
 		super(name);
 	}
 
-	@NotNull
+	@Nonnull
 	public abstract String getLanguageName();
 
-	@NotNull
+	@Nonnull
 	public abstract SdkType getLanguageSdkType();
 
-	@NotNull
+	@Nonnull
 	@Override
 	public String getPresentableName()
 	{
