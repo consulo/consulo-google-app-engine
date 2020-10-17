@@ -14,7 +14,7 @@
   - limitations under the License.
   -->
 
-<idea-plugin>
+<consulo-plugin>
 	<id>consulo.google-app-engine.go</id>
 	<name>Google App Engine Go</name>
 	<version>SNAPSHOT</version>
@@ -27,9 +27,9 @@
 
 		<moduleExtensionProvider key="google-app-engine-go"
 								 parentKey="google-go"
-								 icon="/icons/appEngine.png"
+								 icon="consulo.google.appengine.api.GoogleAppEngineIconGroup@appengine"
 								 name="Google App Engine"
 								 immutableClass="consulo.google.appengine.go.module.extension.GoAppModuleExtension"
 								 mutableClass="consulo.google.appengine.go.module.extension.GoAppMutableModuleExtension" />
 	</extensions>
-</idea-plugin>
+</consulo-plugin>

@@ -14,7 +14,7 @@
   - limitations under the License.
   -->
 
-<idea-plugin>
+<consulo-plugin>
 	<id>consulo.google-app-engine.py</id>
 	<name>Google App Engine Python</name>
 	<version>SNAPSHOT</version>
@@ -26,9 +26,9 @@
 
 		<moduleExtensionProvider key="google-app-engine-py"
 								 parentKey="python"
-								 icon="/icons/appEngine.png"
+								 icon="consulo.google.appengine.api.GoogleAppEngineIconGroup@appengine"
 								 name="Google App Engine"
 								 immutableClass="consulo.google.appengine.py.module.extension.PyAppModuleExtension"
 								 mutableClass="consulo.google.appengine.py.module.extension.PyAppMutableModuleExtension" />
 	</extensions>
-</idea-plugin>
+</consulo-plugin>

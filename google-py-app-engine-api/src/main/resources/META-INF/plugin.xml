@@ -14,11 +14,11 @@
   - limitations under the License.
   -->
 
-<idea-plugin>
+<consulo-plugin>
 	<id>consulo.google-app-engine.py.api</id>
 	<name>Google App Engine Python API</name>
 	<version>SNAPSHOT</version>
 	<category>Web Frameworks</category>
 	<depends>consulo.google-app-engine.api</depends>
 	<depends>consulo.python</depends>
-</idea-plugin>
+</consulo-plugin>

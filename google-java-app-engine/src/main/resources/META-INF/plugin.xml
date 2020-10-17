@@ -14,7 +14,7 @@
   - limitations under the License.
   -->
 
-<idea-plugin>
+<consulo-plugin>
 	<id>consulo.google-app-engine.java</id>
 	<name>Google App Engine Java</name>
 	<version>SNAPSHOT</version>
@@ -32,9 +32,9 @@
 
 		<moduleExtensionProvider key="google-app-engine-java"
 								 parentKey="java-web"
-								 icon="/icons/appEngine.png"
+								 icon="consulo.google.appengine.api.GoogleAppEngineIconGroup@appengine"
 								 name="Google App Engine"
 								 immutableClass="consulo.google.appengine.java.module.extension.JavaAppModuleExtension"
 								 mutableClass="consulo.google.appengine.java.module.extension.JavaAppMutableModuleExtension" />
 	</extensions>
-</idea-plugin>
+</consulo-plugin>

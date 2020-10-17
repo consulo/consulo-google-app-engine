@@ -42,7 +42,7 @@ import com.intellij.remoteServer.runtime.deployment.DeploymentTask;
 import com.intellij.remoteServer.runtime.deployment.ServerRuntimeInstance;
 import com.intellij.util.SmartList;
 import com.intellij.util.ui.FormBuilder;
-import consulo.google.appengine.GoogleAppEngineIcons;
+import consulo.google.appengine.api.icon.GoogleAppEngineIconGroup;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 import consulo.module.extension.ModuleExtensionHelper;
 import consulo.ui.image.Image;
@@ -52,7 +52,6 @@ import consulo.ui.image.Image;
  */
 public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerConfiguration>
 {
-
 	public GoogleAppEngineServerType()
 	{
 		super("google-app-engine");
@@ -82,7 +81,7 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 	@Override
 	public Image getIcon()
 	{
-		return GoogleAppEngineIcons.AppEngine;
+		return GoogleAppEngineIconGroup.appEngine();
 	}
 
 	@Nonnull

@@ -14,7 +14,7 @@
   - limitations under the License.
   -->
 
-<idea-plugin>
+<consulo-plugin>
 	<id>consulo.google-app-engine.php</id>
 	<name>Google App Engine PHP</name>
 	<version>SNAPSHOT</version>
@@ -27,9 +27,9 @@
 
 		<moduleExtensionProvider key="google-app-engine-php"
 								 parentKey="php"
-								 icon="/icons/appEngine.png"
+								 icon="consulo.google.appengine.api.GoogleAppEngineIconGroup@appengine"
 								 name="Google App Engine"
 								 immutableClass="consulo.google.appengine.php.module.extension.PhpAppModuleExtension"
 								 mutableClass="consulo.google.appengine.php.module.extension.PhpAppMutableModuleExtension" />
 	</extensions>
-</idea-plugin>
+</consulo-plugin>
