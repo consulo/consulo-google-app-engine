@@ -16,10 +16,6 @@
 
 package consulo.google.appengine.python.module.extension;
 
-import java.io.File;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.openapi.module.ModuleUtilCore;
@@ -27,10 +23,14 @@ import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.remoteServer.configuration.deployment.ModuleDeploymentSource;
 import com.intellij.remoteServer.impl.configuration.deploySource.impl.ModuleDeploymentSourceImpl;
 import com.jetbrains.python.sdk.PythonSdkType;
-import consulo.extension.impl.ModuleExtensionWithSdkImpl;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 import consulo.module.extension.MutableModuleInheritableNamedPointer;
+import consulo.module.extension.impl.ModuleExtensionWithSdkImpl;
 import consulo.roots.ModuleRootLayer;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.io.File;
 
 /**
  * @author VISTALL

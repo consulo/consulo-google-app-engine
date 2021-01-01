@@ -16,12 +16,6 @@
 
 package consulo.google.appengine.java.module.extension;
 
-import javax.annotation.Nonnull;
-
-import org.jdom.Element;
-
-import javax.annotation.Nullable;
-
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.openapi.module.ModuleUtilCore;
@@ -31,19 +25,22 @@ import com.intellij.packaging.artifacts.Artifact;
 import com.intellij.packaging.artifacts.ArtifactPointer;
 import com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource;
 import com.intellij.remoteServer.impl.configuration.deploySource.impl.ArtifactDeploymentSourceImpl;
-import consulo.extension.impl.ModuleExtensionWithSdkImpl;
 import consulo.google.appengine.java.sdk.JavaAppSdkType;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 import consulo.java.module.extension.JavaModuleExtension;
+import consulo.module.extension.impl.ModuleExtensionWithSdkImpl;
 import consulo.packaging.artifacts.ArtifactPointerUtil;
 import consulo.roots.ModuleRootLayer;
+import org.jdom.Element;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL
  * @since 27.09.13.
  */
-public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppModuleExtension>
-		implements GoogleAppEngineModuleExtension<ArtifactDeploymentSource, JavaAppModuleExtension>
+public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppModuleExtension> implements GoogleAppEngineModuleExtension<ArtifactDeploymentSource, JavaAppModuleExtension>
 {
 	protected ArtifactPointer myArtifactPointer;
 
