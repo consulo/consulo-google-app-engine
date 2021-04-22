@@ -16,26 +16,25 @@
 
 package consulo.google.appengine.python.module.extension;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.annotation.Nonnull;
-import javax.swing.*;
-
-import org.jdom.Element;
+import com.intellij.openapi.options.ShowSettingsUtil;
 import com.intellij.openapi.projectRoots.Sdk;
 import com.intellij.openapi.projectRoots.SdkModel;
 import com.intellij.openapi.projectRoots.SdkTypeId;
-import com.intellij.openapi.roots.ui.configuration.ProjectStructureConfigurable;
 import com.intellij.openapi.util.Comparing;
 import com.intellij.openapi.util.Conditions;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.util.ui.FormBuilder;
 import com.jetbrains.python.sdk.PythonSdkType;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.bundle.SdkUtil;
+import consulo.ide.settings.impl.ProjectStructureSettingsUtil;
 import consulo.roots.ModuleRootLayer;
 import consulo.roots.ui.configuration.SdkComboBox;
 import consulo.util.pointers.NamedPointer;
+import org.jdom.Element;
+
+import javax.annotation.Nonnull;
+import javax.swing.*;
 
 /**
  * @author VISTALL
@@ -54,7 +53,8 @@ public abstract class BasePyModuleExtension<T extends BasePyModuleExtension<T>> 
 	@Nonnull
 	protected JComponent createRuntimeCheckBox()
 	{
-		SdkModel model = ProjectStructureConfigurable.getInstance(getModule().getProject()).getProjectSdksModel();
+		ProjectStructureSettingsUtil util = (ProjectStructureSettingsUtil) ShowSettingsUtil.getInstance();
+		SdkModel model = util.getSdksModel();
 
 		final SdkComboBox box = new SdkComboBox(model, Conditions.<SdkTypeId>is(PythonSdkType.getInstance()), true);
 		if(myRuntimeSdkPointer == null)
@@ -66,20 +66,16 @@ public abstract class BasePyModuleExtension<T extends BasePyModuleExtension<T>> 
 			box.setSelectedSdk(myRuntimeSdkPointer.getName());
 		}
 
-		box.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				SdkComboBox.SdkComboBoxItem selectedItem = box.getSelectedItem();
-				String sdkName = selectedItem.getSdkName();
-				myRuntimeSdkPointer = sdkName == null ? null : SdkUtil.createPointer(sdkName);
-			}
+		box.addActionListener(e -> {
+			SdkComboBox.SdkComboBoxItem selectedItem = box.getSelectedItem();
+			String sdkName = selectedItem.getSdkName();
+			myRuntimeSdkPointer = sdkName == null ? null : SdkUtil.createPointer(sdkName);
 		});
 
 		return FormBuilder.createFormBuilder().addLabeledComponent("Runtime SDK: ", box).getPanel();
 	}
 
+	@RequiredReadAction
 	@Override
 	public void commit(@Nonnull T mutableModuleExtension)
 	{
@@ -111,6 +107,7 @@ public abstract class BasePyModuleExtension<T extends BasePyModuleExtension<T>> 
 		}
 	}
 
+	@RequiredReadAction
 	@Override
 	protected void loadStateImpl(@Nonnull Element element)
 	{
