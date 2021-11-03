@@ -21,4 +21,9 @@
 	<category>Web Frameworks</category>
 	<depends>consulo.google-app-engine.api</depends>
 	<depends>consulo.python</depends>
+
+	<tags>
+		<tag>web.framework</tag>
+		<tag>cloud</tag>
+	</tags>
 </consulo-plugin>

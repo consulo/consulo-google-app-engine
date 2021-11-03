@@ -22,6 +22,11 @@
 	<depends>consulo.google-app-engine.api</depends>
 	<depends>consulo.javaee</depends>
 
+	<tags>
+		<tag>web.framework</tag>
+		<tag>cloud</tag>
+	</tags>
+
 	<extensions defaultExtensionNs="com.intellij.xml">
 		<schemaProvider implementation="consulo.google.appengine.java.descriptor.AppEngineWebSchemaProvider"/>
 		<dom.fileDescription implementation="consulo.google.appengine.java.descriptor.dom.AppEngineWebFileDescription"/>

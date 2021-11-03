@@ -22,6 +22,11 @@
 	<depends>consulo.google-app-engine.py.api</depends>
 	<depends>consulo.google.go</depends>
 
+	<tags>
+		<tag>web.framework</tag>
+		<tag>cloud</tag>
+	</tags>
+
 	<extensions defaultExtensionNs="com.intellij">
 		<sdkType implementation="consulo.google.appengine.go.sdk.GoAppSdkType" />
 
