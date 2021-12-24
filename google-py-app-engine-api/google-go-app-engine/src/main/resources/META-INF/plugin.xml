@@ -14,7 +14,7 @@
   - limitations under the License.
   -->
 
-<consulo-plugin>
+<consulo-plugin url="https://github.com/consulo/consulo-google-app-engine">
 	<id>consulo.google-app-engine.go</id>
 	<name>Google App Engine Go</name>
 	<version>SNAPSHOT</version>

@@ -14,7 +14,7 @@
   - limitations under the License.
   -->
 
-<consulo-plugin>
+<consulo-plugin url="https://github.com/consulo/consulo-google-app-engine">
 	<id>consulo.google-app-engine.py.api</id>
 	<name>Google App Engine Python API</name>
 	<version>SNAPSHOT</version>
