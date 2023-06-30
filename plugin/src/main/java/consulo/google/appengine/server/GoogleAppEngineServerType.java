@@ -15,41 +15,41 @@
  */
 package consulo.google.appengine.server;
 
-import java.awt.Dimension;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.swing.JComponent;
-import javax.swing.JTextField;
-
-import javax.annotation.Nullable;
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.module.ModuleManager;
-import com.intellij.openapi.module.ModuleUtilCore;
-import com.intellij.openapi.options.ConfigurationException;
-import com.intellij.openapi.options.SettingsEditor;
-import com.intellij.openapi.options.UnnamedConfigurable;
-import com.intellij.openapi.project.Project;
-import com.intellij.remoteServer.ServerType;
-import com.intellij.remoteServer.configuration.deployment.DeploymentConfigurator;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
-import com.intellij.remoteServer.configuration.deployment.DummyDeploymentConfiguration;
-import com.intellij.remoteServer.configuration.localServer.LocalRunner;
-import com.intellij.remoteServer.runtime.ServerConnector;
-import com.intellij.remoteServer.runtime.ServerTaskExecutor;
-import com.intellij.remoteServer.runtime.deployment.DeploymentLogManager;
-import com.intellij.remoteServer.runtime.deployment.DeploymentTask;
-import com.intellij.remoteServer.runtime.deployment.ServerRuntimeInstance;
-import com.intellij.util.SmartList;
-import com.intellij.util.ui.FormBuilder;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.configurable.ConfigurationException;
+import consulo.configurable.UnnamedConfigurable;
+import consulo.execution.configuration.ui.SettingsEditor;
 import consulo.google.appengine.api.icon.GoogleAppEngineIconGroup;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
+import consulo.language.util.ModuleUtilCore;
+import consulo.module.Module;
+import consulo.module.ModuleManager;
 import consulo.module.extension.ModuleExtensionHelper;
+import consulo.project.Project;
+import consulo.remoteServer.ServerType;
+import consulo.remoteServer.configuration.deployment.DeploymentConfigurator;
+import consulo.remoteServer.configuration.deployment.DeploymentSource;
+import consulo.remoteServer.configuration.deployment.DummyDeploymentConfiguration;
+import consulo.remoteServer.runtime.ServerConnector;
+import consulo.remoteServer.runtime.ServerTaskExecutor;
+import consulo.remoteServer.runtime.deployment.DeploymentLogManager;
+import consulo.remoteServer.runtime.deployment.DeploymentTask;
+import consulo.remoteServer.runtime.deployment.ServerRuntimeInstance;
+import consulo.remoteServer.runtime.local.LocalRunner;
+import consulo.ui.ex.awt.FormBuilder;
 import consulo.ui.image.Image;
+import consulo.util.collection.SmartList;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
 
 /**
  * @author nik
  */
+@ExtensionImpl
 public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerConfiguration>
 {
 	public GoogleAppEngineServerType()
@@ -81,7 +81,7 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 	@Override
 	public Image getIcon()
 	{
-		return GoogleAppEngineIconGroup.appEngine();
+		return GoogleAppEngineIconGroup.appengine();
 	}
 
 	@Nonnull

@@ -16,16 +16,18 @@
 
 package consulo.google.appengine.go.sdk;
 
-import javax.annotation.Nonnull;
-
 import com.goide.sdk.GoSdkType;
-import com.intellij.openapi.projectRoots.SdkType;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.content.bundle.SdkType;
 import consulo.google.appengine.python.sdk.GoogleAppEnginePySdkType;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
  * @since 27.09.13.
  */
+@ExtensionImpl
 public class GoAppSdkType extends GoogleAppEnginePySdkType
 {
 	public GoAppSdkType()

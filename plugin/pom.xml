@@ -19,14 +19,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>consulo</groupId>
-		<artifactId>arch.ide-provided</artifactId>
-		<version>2-SNAPSHOT</version>
+		<artifactId>arch.ide-api-provided</artifactId>
+		<version>3-SNAPSHOT</version>
 		<relativePath/>
 	</parent>
 
 	<groupId>consulo.plugin</groupId>
 	<artifactId>consulo.google-app-engine.api</artifactId>
-	<version>2-SNAPSHOT</version>
+	<version>3-SNAPSHOT</version>
 	<packaging>consulo-plugin</packaging>
 
 	<repositories>
@@ -45,7 +45,6 @@
 			<plugin>
 				<groupId>consulo.maven</groupId>
 				<artifactId>maven-consulo-plugin</artifactId>
-				<version>2-SNAPSHOT</version>
 				<extensions>true</extensions>
 				<configuration>
 					<repositoryChannel>nightly</repositoryChannel>
@@ -56,6 +55,7 @@
 					<dependencies>
 						<dependency>consulo.java</dependency>
 						<dependency>consulo.javaee</dependency>
+						<dependency>consulo.javascript</dependency>
 						<dependency>consulo.python</dependency>
 						<dependency>consulo.google.go</dependency>
 						<dependency>consulo.php</dependency>
@@ -86,6 +86,12 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>consulo.internal</groupId>
+			<artifactId>forms_rt</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>consulo.google-app-engine-gae.api</artifactId>

@@ -15,43 +15,47 @@
  */
 package consulo.google.appengine.server;
 
-import com.intellij.execution.ExecutionException;
-import com.intellij.execution.ExecutionManager;
-import com.intellij.execution.Executor;
-import com.intellij.execution.configurations.GeneralCommandLine;
-import com.intellij.execution.executors.DefaultRunExecutor;
-import com.intellij.execution.filters.TextConsoleBuilderFactory;
-import com.intellij.execution.process.*;
-import com.intellij.execution.ui.ConsoleView;
-import com.intellij.execution.ui.RunContentDescriptor;
-import com.intellij.execution.ui.RunnerLayoutUi;
-import com.intellij.execution.ui.actions.CloseAction;
-import com.intellij.ide.passwordSafe.PasswordSafeException;
-import com.intellij.openapi.actionSystem.ActionManager;
-import com.intellij.openapi.actionSystem.ActionPlaces;
-import com.intellij.openapi.actionSystem.DefaultActionGroup;
-import com.intellij.openapi.actionSystem.IdeActions;
-import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.diagnostic.Logger;
-import com.intellij.openapi.fileEditor.FileDocumentManager;
-import com.intellij.openapi.progress.ProgressIndicator;
-import com.intellij.openapi.progress.ProgressManager;
-import com.intellij.openapi.progress.Task;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
-import com.intellij.remoteServer.runtime.deployment.DeploymentRuntime;
-import com.intellij.remoteServer.runtime.deployment.ServerRuntimeInstance;
-import com.intellij.remoteServer.runtime.log.LoggingHandler;
+import consulo.application.ApplicationManager;
+import consulo.application.progress.ProgressIndicator;
+import consulo.application.progress.ProgressManager;
+import consulo.application.progress.Task;
+import consulo.credentialStorage.PasswordSafeException;
+import consulo.document.FileDocumentManager;
+import consulo.execution.ExecutionManager;
+import consulo.execution.action.CloseAction;
+import consulo.execution.executor.DefaultRunExecutor;
+import consulo.execution.executor.Executor;
+import consulo.execution.ui.RunContentDescriptor;
+import consulo.execution.ui.console.ConsoleView;
+import consulo.execution.ui.console.TextConsoleBuilderFactory;
+import consulo.execution.ui.layout.RunnerLayoutUi;
+import consulo.execution.ui.layout.RunnerLayoutUiFactory;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 import consulo.google.appengine.server.ui.GoogleAppEngineAccountDialog;
+import consulo.logging.Logger;
+import consulo.process.ExecutionException;
+import consulo.process.ProcessHandler;
+import consulo.process.ProcessHandlerBuilder;
+import consulo.process.ProcessOutputTypes;
+import consulo.process.cmd.GeneralCommandLine;
+import consulo.process.event.ProcessAdapter;
+import consulo.process.event.ProcessEvent;
+import consulo.project.Project;
+import consulo.remoteServer.configuration.deployment.DeploymentSource;
+import consulo.remoteServer.runtime.deployment.DeploymentRuntime;
+import consulo.remoteServer.runtime.deployment.ServerRuntimeInstance;
+import consulo.remoteServer.runtime.log.LoggingHandler;
+import consulo.ui.ex.action.ActionManager;
+import consulo.ui.ex.action.ActionPlaces;
+import consulo.ui.ex.action.DefaultActionGroup;
+import consulo.ui.ex.action.IdeActions;
 import consulo.util.dataholder.Key;
-import javax.annotation.Nonnull;
+import consulo.util.lang.StringUtil;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-
-import javax.annotation.Nullable;
 
 /**
  * @author nik
@@ -140,12 +144,12 @@ public class GoogleAppEngineUploader
 			final Executor executor = DefaultRunExecutor.getRunExecutorInstance();
 
 			final ConsoleView console = TextConsoleBuilderFactory.getInstance().createBuilder(project).getConsole();
-			final RunnerLayoutUi ui = RunnerLayoutUi.Factory.getInstance(project).create("Upload", "Upload Application", "Upload Application", project);
+			final RunnerLayoutUi ui = RunnerLayoutUiFactory.getInstance(project).create("Upload", "Upload Application", "Upload Application", project);
 			final DefaultActionGroup group = new DefaultActionGroup();
 			ui.getOptions().setLeftToolbar(group, ActionPlaces.UNKNOWN);
 			ui.addContent(ui.createContent("upload", console.getComponent(), "Upload Application", null, console.getPreferredFocusableComponent()));
 
-			final ProcessHandler processHandler = new OSProcessHandler(commandLine.createProcess(), commandLine.getCommandLineString());
+			final ProcessHandler processHandler = ProcessHandlerBuilder.create(commandLine).build();
 			processHandler.addProcessListener(new MyProcessListener(processHandler));
 			console.attachToProcess(processHandler);
 			processHandler.startNotify();

@@ -16,21 +16,21 @@
 
 package consulo.google.appengine.python.module.extension;
 
-import com.intellij.openapi.options.ShowSettingsUtil;
-import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.projectRoots.SdkModel;
-import com.intellij.openapi.projectRoots.SdkTypeId;
-import com.intellij.openapi.util.Comparing;
-import com.intellij.openapi.util.Conditions;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.util.ui.FormBuilder;
-import com.jetbrains.python.sdk.PythonSdkType;
+import com.jetbrains.python.impl.sdk.PythonSdkType;
 import consulo.annotation.access.RequiredReadAction;
-import consulo.bundle.SdkUtil;
-import consulo.ide.settings.impl.ProjectStructureSettingsUtil;
-import consulo.roots.ModuleRootLayer;
-import consulo.roots.ui.configuration.SdkComboBox;
-import consulo.util.pointers.NamedPointer;
+import consulo.component.util.pointer.NamedPointer;
+import consulo.content.bundle.Sdk;
+import consulo.content.bundle.SdkModel;
+import consulo.content.bundle.SdkTypeId;
+import consulo.content.bundle.SdkUtil;
+import consulo.ide.setting.ProjectStructureSettingsUtil;
+import consulo.ide.setting.ShowSettingsUtil;
+import consulo.module.content.layer.ModuleRootLayer;
+import consulo.module.ui.awt.SdkComboBox;
+import consulo.ui.ex.awt.FormBuilder;
+import consulo.util.lang.Comparing;
+import consulo.util.lang.StringUtil;
+import consulo.util.lang.function.Conditions;
 import org.jdom.Element;
 
 import javax.annotation.Nonnull;
@@ -53,7 +53,7 @@ public abstract class BasePyModuleExtension<T extends BasePyModuleExtension<T>> 
 	@Nonnull
 	protected JComponent createRuntimeCheckBox()
 	{
-		ProjectStructureSettingsUtil util = (ProjectStructureSettingsUtil) ShowSettingsUtil.getInstance();
+		ProjectStructureSettingsUtil util = ShowSettingsUtil.getInstance();
 		SdkModel model = util.getSdksModel();
 
 		final SdkComboBox box = new SdkComboBox(model, Conditions.<SdkTypeId>is(PythonSdkType.getInstance()), true);

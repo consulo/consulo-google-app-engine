@@ -15,8 +15,8 @@
  */
 package consulo.google.appengine.java.descriptor.dom;
 
-import com.intellij.util.xml.DomElement;
-import com.intellij.util.xml.GenericDomValue;
+import consulo.xml.util.xml.DomElement;
+import consulo.xml.util.xml.GenericDomValue;
 
 /**
  * @author nik

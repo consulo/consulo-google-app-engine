@@ -16,13 +16,13 @@
 
 package consulo.google.appengine.module.extension;
 
+import consulo.module.extension.ModuleExtensionWithSdk;
+import consulo.process.ExecutionException;
+import consulo.process.cmd.GeneralCommandLine;
+import consulo.remoteServer.configuration.deployment.DeploymentSource;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import com.intellij.execution.ExecutionException;
-import com.intellij.execution.configurations.GeneralCommandLine;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
-import consulo.module.extension.ModuleExtensionWithSdk;
 
 /**
  * @author VISTALL

@@ -15,15 +15,17 @@
  */
 package consulo.google.appengine.java.descriptor.dom;
 
-import javax.annotation.Nonnull;
-
+import consulo.annotation.component.ExtensionImpl;
 import consulo.google.appengine.java.descriptor.AppEngineXmlConstants;
-import com.intellij.psi.xml.XmlFile;
-import com.intellij.util.xml.DomFileDescription;
+import consulo.xml.psi.xml.XmlFile;
+import consulo.xml.util.xml.DomFileDescription;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author nik
  */
+@ExtensionImpl
 public class AppEngineWebFileDescription extends DomFileDescription<AppEngineWebApp>
 {
 	public AppEngineWebFileDescription()

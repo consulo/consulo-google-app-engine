@@ -16,41 +16,36 @@
 
 package consulo.google.appengine.java.module.extension;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Collection;
-import java.util.List;
+import consulo.application.AllIcons;
+import consulo.compiler.artifact.Artifact;
+import consulo.compiler.artifact.ArtifactManager;
+import consulo.compiler.artifact.ArtifactPointerUtil;
+import consulo.content.bundle.Sdk;
+import consulo.disposer.Disposable;
+import consulo.javaee.artifact.ExplodedWarArtifactType;
+import consulo.module.content.layer.ModuleRootLayer;
+import consulo.module.extension.MutableModuleExtensionWithSdk;
+import consulo.module.extension.MutableModuleInheritableNamedPointer;
+import consulo.module.extension.swing.SwingMutableModuleExtension;
+import consulo.module.ui.extension.ModuleExtensionSdkBoxBuilder;
+import consulo.ui.Component;
+import consulo.ui.Label;
+import consulo.ui.annotation.RequiredUIAccess;
+import consulo.ui.ex.SimpleTextAttributes;
+import consulo.ui.ex.awt.*;
+import consulo.ui.layout.VerticalLayout;
+import consulo.util.collection.ContainerUtil;
+import consulo.util.lang.Comparing;
+import consulo.util.lang.StringUtil;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.swing.*;
-
-import com.intellij.icons.AllIcons;
-import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.ui.ComboBox;
-import com.intellij.openapi.ui.LabeledComponent;
-import com.intellij.openapi.ui.VerticalFlowLayout;
-import com.intellij.openapi.util.Comparing;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.packaging.artifacts.Artifact;
-import com.intellij.packaging.artifacts.ArtifactManager;
-import com.intellij.ui.CollectionComboBoxModel;
-import com.intellij.ui.ColoredListCellRenderer;
-import com.intellij.ui.SimpleTextAttributes;
-import com.intellij.util.Function;
-import com.intellij.util.containers.ContainerUtil;
-import consulo.disposer.Disposable;
-import consulo.extension.ui.ModuleExtensionSdkBoxBuilder;
-import consulo.javaee.artifact.ExplodedWarArtifactType;
-import consulo.module.extension.MutableModuleExtensionWithSdk;
-import consulo.module.extension.MutableModuleInheritableNamedPointer;
-import consulo.module.extension.swing.SwingMutableModuleExtension;
-import consulo.packaging.artifacts.ArtifactPointerUtil;
-import consulo.roots.ModuleRootLayer;
-import consulo.ui.Component;
-import consulo.ui.Label;
-import consulo.ui.annotation.RequiredUIAccess;
-import consulo.ui.layout.VerticalLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Function;
 
 /**
  * @author VISTALL
@@ -88,14 +83,7 @@ public class JavaAppMutableModuleExtension extends JavaAppModuleExtension implem
 
 		Collection<? extends Artifact> artifactsByType = ArtifactManager.getInstance(getProject()).getArtifactsByType(ExplodedWarArtifactType.getInstance());
 
-		List<String> map = ContainerUtil.map(artifactsByType, new Function<Artifact, String>()
-		{
-			@Override
-			public String fun(Artifact artifact)
-			{
-				return artifact.getName();
-			}
-		});
+		List<String> map = ContainerUtil.map(artifactsByType, (Function<Artifact, String>) artifact -> artifact.getName());
 
 		final ComboBox box = new ComboBox(new CollectionComboBoxModel(map, myArtifactPointer == null ? null : myArtifactPointer.getName()));
 		box.setRenderer(new ColoredListCellRenderer()

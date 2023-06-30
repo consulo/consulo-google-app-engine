@@ -16,12 +16,12 @@
 
 package consulo.google.appengine.go.module.extension;
 
-import javax.annotation.Nonnull;
-
+import consulo.content.bundle.SdkType;
 import consulo.google.appengine.go.sdk.GoAppSdkType;
 import consulo.google.appengine.python.module.extension.BasePyModuleExtension;
-import com.intellij.openapi.projectRoots.SdkType;
-import consulo.roots.ModuleRootLayer;
+import consulo.module.content.layer.ModuleRootLayer;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL

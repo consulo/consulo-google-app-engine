@@ -16,8 +16,8 @@
 
 package consulo.google.appengine.server;
 
-import com.intellij.remoteServer.configuration.ServerConfigurationBase;
-import com.intellij.util.xmlb.annotations.Attribute;
+import consulo.remoteServer.configuration.ServerConfigurationBase;
+import consulo.util.xml.serializer.annotation.Attribute;
 
 /**
  * @author VISTALL

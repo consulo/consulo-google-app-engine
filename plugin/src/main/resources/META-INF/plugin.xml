@@ -24,9 +24,4 @@
 		<tag>web.framework</tag>
 		<tag>cloud</tag>
 	</tags>
-
-	<extensions defaultExtensionNs="com.intellij">
-		<remoteServer.type implementation="consulo.google.appengine.server.GoogleAppEngineServerType" />
-		<remoteServer.deploymentSource.type implementation="consulo.google.appengine.server.GoogleAppEngineDeploymentSourceType" />
-	</extensions>
 </consulo-plugin>

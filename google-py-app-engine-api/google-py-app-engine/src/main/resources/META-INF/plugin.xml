@@ -25,15 +25,4 @@
 		<tag>web.framework</tag>
 		<tag>cloud</tag>
 	</tags>
-
-	<extensions defaultExtensionNs="com.intellij">
-		<sdkType implementation="consulo.google.appengine.py.sdk.PyAppSdkType" />
-
-		<moduleExtensionProvider key="google-app-engine-py"
-								 parentKey="python"
-								 icon="consulo.google.appengine.api.GoogleAppEngineIconGroup@appengine"
-								 name="Google App Engine"
-								 immutableClass="consulo.google.appengine.py.module.extension.PyAppModuleExtension"
-								 mutableClass="consulo.google.appengine.py.module.extension.PyAppMutableModuleExtension" />
-	</extensions>
 </consulo-plugin>

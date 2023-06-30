@@ -16,16 +16,18 @@
 
 package consulo.google.appengine.php.sdk;
 
-import javax.annotation.Nonnull;
-
+import consulo.annotation.component.ExtensionImpl;
+import consulo.content.bundle.SdkType;
 import consulo.google.appengine.python.sdk.GoogleAppEnginePySdkType;
-import com.intellij.openapi.projectRoots.SdkType;
 import consulo.php.sdk.PhpSdkType;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
  * @since 27.09.13.
  */
+@ExtensionImpl
 public class PhpAppSdkType extends GoogleAppEnginePySdkType
 {
 	public PhpAppSdkType()

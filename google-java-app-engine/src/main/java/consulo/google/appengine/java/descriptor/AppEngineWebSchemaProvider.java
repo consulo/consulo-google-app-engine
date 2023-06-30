@@ -15,35 +15,35 @@
  */
 package consulo.google.appengine.java.descriptor;
 
+import com.intellij.java.language.psi.JavaPsiFacade;
+import com.intellij.xml.XmlSchemaProvider;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.content.bundle.Sdk;
+import consulo.google.appengine.java.module.extension.JavaAppModuleExtension;
+import consulo.google.appengine.java.sdk.JavaAppSdkType;
+import consulo.language.psi.PsiDirectory;
+import consulo.language.psi.PsiFile;
+import consulo.language.psi.PsiManager;
+import consulo.language.psi.PsiPackage;
+import consulo.language.psi.scope.GlobalSearchScope;
+import consulo.language.util.ModuleUtilCore;
+import consulo.module.Module;
+import consulo.virtualFileSystem.LocalFileSystem;
+import consulo.virtualFileSystem.VirtualFile;
+import consulo.xml.psi.xml.XmlFile;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
-
-import org.jetbrains.annotations.NonNls;
-
-import javax.annotation.Nullable;
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.module.ModuleUtilCore;
-import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.vfs.LocalFileSystem;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.JavaPsiFacade;
-import com.intellij.psi.PsiDirectory;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiManager;
-import com.intellij.psi.search.GlobalSearchScope;
-import com.intellij.psi.xml.XmlFile;
-import com.intellij.xml.XmlSchemaProvider;
-import consulo.google.appengine.java.module.extension.JavaAppModuleExtension;
-import consulo.google.appengine.java.sdk.JavaAppSdkType;
-import consulo.psi.PsiPackage;
-
 /**
  * @author nik
  */
+@ExtensionImpl
 public class AppEngineWebSchemaProvider extends XmlSchemaProvider
 {
 	private static final Set<String> FILE_NAMES = new HashSet<String>(Arrays.asList(AppEngineXmlConstants.APP_ENGINE_WEB_XML_NAME, AppEngineXmlConstants.JDO_CONFIG_XML_NAME));

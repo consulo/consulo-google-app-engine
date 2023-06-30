@@ -26,20 +26,4 @@
 		<tag>web.framework</tag>
 		<tag>cloud</tag>
 	</tags>
-
-	<extensions defaultExtensionNs="com.intellij.xml">
-		<schemaProvider implementation="consulo.google.appengine.java.descriptor.AppEngineWebSchemaProvider"/>
-		<dom.fileDescription implementation="consulo.google.appengine.java.descriptor.dom.AppEngineWebFileDescription"/>
-	</extensions>
-
-	<extensions defaultExtensionNs="com.intellij">
-		<sdkType implementation="consulo.google.appengine.java.sdk.JavaAppSdkType" />
-
-		<moduleExtensionProvider key="google-app-engine-java"
-								 parentKey="java-web"
-								 icon="consulo.google.appengine.api.GoogleAppEngineIconGroup@appengine"
-								 name="Google App Engine"
-								 immutableClass="consulo.google.appengine.java.module.extension.JavaAppModuleExtension"
-								 mutableClass="consulo.google.appengine.java.module.extension.JavaAppMutableModuleExtension" />
-	</extensions>
 </consulo-plugin>

@@ -16,23 +16,23 @@
 
 package consulo.google.appengine.server;
 
-import javax.annotation.Nonnull;
-
-import com.intellij.execution.DefaultExecutionResult;
-import com.intellij.execution.ExecutionException;
-import com.intellij.execution.ExecutionResult;
-import com.intellij.execution.Executor;
-import com.intellij.execution.configurations.GeneralCommandLine;
-import com.intellij.execution.filters.TextConsoleBuilderFactory;
-import com.intellij.execution.process.OSProcessHandler;
-import com.intellij.execution.process.ProcessHandler;
-import com.intellij.execution.runners.ExecutionEnvironment;
-import com.intellij.execution.runners.ProgramRunner;
-import com.intellij.execution.ui.ConsoleView;
-import com.intellij.remoteServer.configuration.deployment.DeploymentConfiguration;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
-import com.intellij.remoteServer.configuration.localServer.LocalRunner;
+import consulo.execution.DefaultExecutionResult;
+import consulo.execution.ExecutionResult;
+import consulo.execution.executor.Executor;
+import consulo.execution.runner.ExecutionEnvironment;
+import consulo.execution.runner.ProgramRunner;
+import consulo.execution.ui.console.ConsoleView;
+import consulo.execution.ui.console.TextConsoleBuilderFactory;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
+import consulo.process.ExecutionException;
+import consulo.process.ProcessHandler;
+import consulo.process.ProcessHandlerBuilder;
+import consulo.process.cmd.GeneralCommandLine;
+import consulo.remoteServer.configuration.deployment.DeploymentConfiguration;
+import consulo.remoteServer.configuration.deployment.DeploymentSource;
+import consulo.remoteServer.runtime.local.LocalRunner;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
@@ -42,10 +42,10 @@ public class GoogleAppEngineLocalRunner implements LocalRunner
 {
 	@Override
 	public ExecutionResult execute(@Nonnull DeploymentSource d,
-			DeploymentConfiguration deploymentConfiguration,
-			ExecutionEnvironment executionEnvironment,
-			@Nonnull Executor executor,
-			@Nonnull ProgramRunner programRunner) throws ExecutionException
+								   DeploymentConfiguration deploymentConfiguration,
+								   ExecutionEnvironment executionEnvironment,
+								   @Nonnull Executor executor,
+								   @Nonnull ProgramRunner programRunner) throws ExecutionException
 	{
 		GoogleAppEngineDeploymentSource deploymentSource = (GoogleAppEngineDeploymentSource) d;
 
@@ -57,7 +57,7 @@ public class GoogleAppEngineLocalRunner implements LocalRunner
 
 		try
 		{
-			final ProcessHandler processHandler = new OSProcessHandler(localServerCommandLine.createProcess(), localServerCommandLine.getCommandLineString());
+			final ProcessHandler processHandler = ProcessHandlerBuilder.create(localServerCommandLine).build();
 
 			console.attachToProcess(processHandler);
 

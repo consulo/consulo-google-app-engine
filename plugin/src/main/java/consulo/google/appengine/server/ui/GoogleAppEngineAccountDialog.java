@@ -15,28 +15,25 @@
  */
 package consulo.google.appengine.server.ui;
 
-import javax.swing.JCheckBox;
-import javax.swing.JComponent;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import consulo.application.CommonBundle;
+import consulo.credentialStorage.PasswordSafe;
+import consulo.credentialStorage.PasswordSafeException;
+import consulo.google.appengine.server.GoogleAppEngineServerConfiguration;
+import consulo.project.Project;
+import consulo.project.ProjectPropertiesComponent;
+import consulo.ui.ex.awt.DialogWrapper;
+import consulo.ui.ex.awt.Messages;
+import consulo.util.lang.StringUtil;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import com.intellij.CommonBundle;
-import com.intellij.ide.passwordSafe.PasswordSafe;
-import com.intellij.ide.passwordSafe.PasswordSafeException;
-import com.intellij.ide.util.PropertiesComponent;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.DialogWrapper;
-import com.intellij.openapi.ui.Messages;
-import com.intellij.openapi.util.text.StringUtil;
-import consulo.google.appengine.server.GoogleAppEngineServerConfiguration;
+import javax.swing.*;
 
 /**
  * @author nik
  */
-public class GoogleAppEngineAccountDialog extends DialogWrapper {
+public class GoogleAppEngineAccountDialog extends DialogWrapper
+{
   public static final String PASSWORD_KEY = "GOOGLE_APP_ENGINE_PASSWORD";
   private static final String EMAIL_KEY = "GOOGLE_APP_ENGINE_ACCOUNT_EMAIL";
   private JPanel myMainPanel;
@@ -79,7 +76,7 @@ public class GoogleAppEngineAccountDialog extends DialogWrapper {
     if (configuration != null) {
       return configuration.getEmail();
     }
-    return PropertiesComponent.getInstance(project).getValue(EMAIL_KEY);//todo[nik] remove this
+    return ProjectPropertiesComponent.getInstance(project).getValue(EMAIL_KEY);//todo[nik] remove this
   }
 
   @Override
@@ -89,7 +86,7 @@ public class GoogleAppEngineAccountDialog extends DialogWrapper {
       myConfiguration.setEmail(email);
     }
     else {
-      PropertiesComponent.getInstance(myProject).setValue(EMAIL_KEY, email);
+      ProjectPropertiesComponent.getInstance(myProject).setValue(EMAIL_KEY, email);
     }
     if (myRememberPasswordCheckBox.isSelected()) {
       try {

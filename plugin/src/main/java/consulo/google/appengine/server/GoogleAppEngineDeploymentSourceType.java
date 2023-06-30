@@ -16,20 +16,22 @@
 
 package consulo.google.appengine.server;
 
-import javax.annotation.Nonnull;
-
+import consulo.annotation.component.ExtensionImpl;
+import consulo.project.Project;
+import consulo.remoteServer.configuration.deployment.DeploymentSource;
+import consulo.remoteServer.configuration.deployment.DeploymentSourceType;
 import org.jdom.Element;
-import com.intellij.openapi.project.Project;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSourceType;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
  * @since 29.09.13.
  */
+@ExtensionImpl
 public class GoogleAppEngineDeploymentSourceType extends DeploymentSourceType<GoogleAppEngineDeploymentSource>
 {
-	protected GoogleAppEngineDeploymentSourceType()
+	public GoogleAppEngineDeploymentSourceType()
 	{
 		super("google-app-engine");
 	}

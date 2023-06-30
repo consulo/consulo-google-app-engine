@@ -3,3 +3,4 @@
 /.consulo/workspace.xml
 .consulo
 target/
+plugin/sandbox

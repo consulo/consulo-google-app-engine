@@ -16,16 +16,15 @@
 
 package consulo.google.appengine.sdk;
 
-import java.io.File;
-
+import consulo.content.OrderRootType;
+import consulo.content.bundle.SdkType;
 import consulo.google.appengine.api.icon.GoogleAppEngineIconGroup;
+import consulo.ui.image.Image;
 import org.jetbrains.annotations.NonNls;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import com.intellij.openapi.projectRoots.SdkType;
-import com.intellij.openapi.roots.OrderRootType;
-import consulo.ui.image.Image;
+import java.io.File;
 
 /**
  * @author VISTALL
@@ -61,7 +60,7 @@ public abstract class GoogleAppEngineSdkType extends SdkType
 	@Override
 	public Image getIcon()
 	{
-		return GoogleAppEngineIconGroup.appEngine();
+		return GoogleAppEngineIconGroup.appengine();
 	}
 
 	@Nullable

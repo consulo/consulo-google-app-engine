@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package consulo.google.appengine.py.module.extension;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+package consulo.google.appengine.py.impl.module.extension;
 
 import consulo.disposer.Disposable;
-import consulo.extension.ui.ModuleExtensionBundleBoxBuilder;
+import consulo.module.content.layer.ModuleRootLayer;
 import consulo.module.extension.MutableModuleExtensionWithSdk;
-import consulo.roots.ModuleRootLayer;
+import consulo.module.ui.extension.ModuleExtensionBundleBoxBuilder;
 import consulo.ui.Component;
 import consulo.ui.annotation.RequiredUIAccess;
 import consulo.ui.layout.VerticalLayout;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author VISTALL

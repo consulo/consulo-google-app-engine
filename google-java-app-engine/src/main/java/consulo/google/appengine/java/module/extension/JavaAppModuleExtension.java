@@ -16,21 +16,21 @@
 
 package consulo.google.appengine.java.module.extension;
 
-import com.intellij.execution.ExecutionException;
-import com.intellij.execution.configurations.GeneralCommandLine;
-import com.intellij.openapi.module.ModuleUtilCore;
-import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.projectRoots.SdkType;
-import com.intellij.packaging.artifacts.Artifact;
-import com.intellij.packaging.artifacts.ArtifactPointer;
-import com.intellij.remoteServer.configuration.deployment.ArtifactDeploymentSource;
-import com.intellij.remoteServer.impl.configuration.deploySource.impl.ArtifactDeploymentSourceImpl;
+import consulo.compiler.artifact.Artifact;
+import consulo.compiler.artifact.ArtifactPointer;
+import consulo.compiler.artifact.ArtifactPointerUtil;
+import consulo.content.bundle.Sdk;
+import consulo.content.bundle.SdkType;
 import consulo.google.appengine.java.sdk.JavaAppSdkType;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
-import consulo.java.module.extension.JavaModuleExtension;
-import consulo.module.extension.impl.ModuleExtensionWithSdkImpl;
-import consulo.packaging.artifacts.ArtifactPointerUtil;
-import consulo.roots.ModuleRootLayer;
+import consulo.java.language.module.extension.JavaModuleExtension;
+import consulo.language.util.ModuleUtilCore;
+import consulo.module.content.layer.ModuleRootLayer;
+import consulo.module.content.layer.extension.ModuleExtensionWithSdkBase;
+import consulo.process.ExecutionException;
+import consulo.process.cmd.GeneralCommandLine;
+import consulo.remoteServer.configuration.deployment.ArtifactDeploymentSource;
+import consulo.remoteServer.configuration.deployment.DeploymentSourceFactory;
 import org.jdom.Element;
 
 import javax.annotation.Nonnull;
@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  * @author VISTALL
  * @since 27.09.13.
  */
-public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppModuleExtension> implements GoogleAppEngineModuleExtension<ArtifactDeploymentSource, JavaAppModuleExtension>
+public class JavaAppModuleExtension extends ModuleExtensionWithSdkBase<JavaAppModuleExtension> implements GoogleAppEngineModuleExtension<ArtifactDeploymentSource, JavaAppModuleExtension>
 {
 	protected ArtifactPointer myArtifactPointer;
 
@@ -64,7 +64,9 @@ public class JavaAppModuleExtension extends ModuleExtensionWithSdkImpl<JavaAppMo
 		{
 			return null;
 		}
-		return new ArtifactDeploymentSourceImpl(myArtifactPointer);
+
+		DeploymentSourceFactory factory = getProject().getInstance(DeploymentSourceFactory.class);
+		return factory.createArtifactDeploymentSource(myArtifactPointer.getName());
 	}
 
 	@Override

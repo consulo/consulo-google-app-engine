@@ -26,15 +26,4 @@
 		<tag>web.framework</tag>
 		<tag>cloud</tag>
 	</tags>
-
-	<extensions defaultExtensionNs="com.intellij">
-		<sdkType implementation="consulo.google.appengine.go.sdk.GoAppSdkType" />
-
-		<moduleExtensionProvider key="google-app-engine-go"
-								 parentKey="google-go"
-								 icon="consulo.google.appengine.api.GoogleAppEngineIconGroup@appengine"
-								 name="Google App Engine"
-								 immutableClass="consulo.google.appengine.go.module.extension.GoAppModuleExtension"
-								 mutableClass="consulo.google.appengine.go.module.extension.GoAppMutableModuleExtension" />
-	</extensions>
 </consulo-plugin>

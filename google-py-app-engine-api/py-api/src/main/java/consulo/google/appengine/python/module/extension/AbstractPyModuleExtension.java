@@ -16,17 +16,16 @@
 
 package consulo.google.appengine.python.module.extension;
 
-import com.intellij.execution.ExecutionException;
-import com.intellij.execution.configurations.GeneralCommandLine;
-import com.intellij.openapi.module.ModuleUtilCore;
-import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.remoteServer.configuration.deployment.ModuleDeploymentSource;
-import com.intellij.remoteServer.impl.configuration.deploySource.impl.ModuleDeploymentSourceImpl;
-import com.jetbrains.python.sdk.PythonSdkType;
+import com.jetbrains.python.impl.sdk.PythonSdkType;
+import consulo.content.bundle.Sdk;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
+import consulo.module.content.layer.ModuleRootLayer;
+import consulo.module.content.layer.extension.ModuleExtensionWithSdkBase;
 import consulo.module.extension.MutableModuleInheritableNamedPointer;
-import consulo.module.extension.impl.ModuleExtensionWithSdkImpl;
-import consulo.roots.ModuleRootLayer;
+import consulo.process.ExecutionException;
+import consulo.process.cmd.GeneralCommandLine;
+import consulo.remoteServer.configuration.deployment.DeploymentSourceFactory;
+import consulo.remoteServer.configuration.deployment.ModuleDeploymentSource;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -36,7 +35,7 @@ import java.io.File;
  * @author VISTALL
  * @since 27.09.13.
  */
-public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtension<T>> extends ModuleExtensionWithSdkImpl<T> implements GoogleAppEngineModuleExtension<ModuleDeploymentSource, T>
+public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtension<T>> extends ModuleExtensionWithSdkBase<T> implements GoogleAppEngineModuleExtension<ModuleDeploymentSource, T>
 {
 	public AbstractPyModuleExtension(@Nonnull String id, @Nonnull ModuleRootLayer module)
 	{
@@ -64,7 +63,8 @@ public abstract class AbstractPyModuleExtension<T extends AbstractPyModuleExtens
 		{
 			return null;
 		}
-		return new ModuleDeploymentSourceImpl(ModuleUtilCore.createPointer(getModule()));
+		DeploymentSourceFactory factory = getProject().getInstance(DeploymentSourceFactory.class);
+		return factory.createModuleDeploymentSource(getModule().getName());
 	}
 
 	@Nonnull

@@ -16,16 +16,16 @@
 
 package consulo.google.appengine.server;
 
-import javax.annotation.Nonnull;
-
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.module.ModuleUtilCore;
-import com.intellij.openapi.project.Project;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSource;
-import com.intellij.remoteServer.configuration.deployment.DeploymentSourceType;
+import consulo.component.util.pointer.NamedPointer;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
+import consulo.language.util.ModuleUtilCore;
+import consulo.module.Module;
+import consulo.project.Project;
 import consulo.remoteServer.configuration.deployment.DelegateDeploymentSource;
-import consulo.util.pointers.NamedPointer;
+import consulo.remoteServer.configuration.deployment.DeploymentSource;
+import consulo.remoteServer.configuration.deployment.DeploymentSourceType;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL

@@ -16,31 +16,33 @@
 
 package consulo.google.appengine.java.sdk;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.List;
+import com.intellij.java.language.projectRoots.JavaSdk;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.application.util.SystemInfo;
+import consulo.content.base.BinariesOrderRootType;
+import consulo.content.bundle.Sdk;
+import consulo.content.bundle.SdkModificator;
+import consulo.content.bundle.SdkType;
+import consulo.google.appengine.sdk.GoogleAppEngineSdkType;
+import consulo.process.ExecutionException;
+import consulo.process.cmd.GeneralCommandLine;
+import consulo.process.util.CapturingProcessUtil;
+import consulo.process.util.ProcessOutput;
+import consulo.util.io.FileUtil;
+import consulo.util.lang.StringUtil;
+import consulo.virtualFileSystem.VirtualFile;
+import consulo.virtualFileSystem.archive.ArchiveVfsUtil;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import com.intellij.execution.ExecutionException;
-import com.intellij.execution.process.ProcessOutput;
-import com.intellij.execution.util.ExecUtil;
-import com.intellij.openapi.projectRoots.JavaSdk;
-import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.projectRoots.SdkModificator;
-import com.intellij.openapi.projectRoots.SdkType;
-import com.intellij.openapi.util.SystemInfo;
-import com.intellij.openapi.util.io.FileUtil;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.openapi.vfs.VirtualFile;
-import consulo.google.appengine.sdk.GoogleAppEngineSdkType;
-import consulo.roots.types.BinariesOrderRootType;
-import consulo.vfs.util.ArchiveVfsUtil;
+import java.io.File;
+import java.util.List;
 
 /**
  * @author VISTALL
  * @since 27.09.13.
  */
+@ExtensionImpl
 public class JavaAppSdkType extends GoogleAppEngineSdkType
 {
 	public static final String APPCFG = "appcfg";
@@ -116,11 +118,16 @@ public class JavaAppSdkType extends GoogleAppEngineSdkType
 
 	@Nullable
 	@Override
-	public String getVersionString(String s)
+	public String getVersionString(String path)
 	{
 		try
 		{
-			ProcessOutput processOutput = ExecUtil.execAndGetOutput(Arrays.asList(getExecutable(s, APPCFG), "version"), s);
+			GeneralCommandLine cmd = new GeneralCommandLine();
+			cmd.setExePath(getExecutable(path, APPCFG));
+			cmd.addParameter("version");
+			cmd.setWorkDirectory(path);
+
+			ProcessOutput processOutput = CapturingProcessUtil.execAndGetOutput(cmd);
 			List<String> stdoutLines = processOutput.getStdoutLines();
 			if(stdoutLines.isEmpty())
 			{

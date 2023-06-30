@@ -16,16 +16,15 @@
 
 package consulo.google.appengine.python.sdk;
 
+import consulo.google.appengine.sdk.GoogleAppEngineSdkType;
+import consulo.logging.Logger;
+import org.jetbrains.annotations.NonNls;
+import org.yaml.snakeyaml.Yaml;
+
+import javax.annotation.Nullable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.LinkedHashMap;
-
-import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nullable;
-import org.yaml.snakeyaml.Yaml;
-import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.diagnostic.Logger;
-import consulo.google.appengine.sdk.GoogleAppEngineSdkType;
 
 /**
  * @author VISTALL
@@ -57,10 +56,7 @@ public abstract class GoogleAppEnginePySdkType extends GoogleAppEngineSdkType
 		}
 		catch(Exception e)
 		{
-			if(ApplicationManager.getApplication().isInternal())
-			{
-				LOGGER.info(e);
-			}
+			LOGGER.warn(e);
 		}
 		return null;
 	}

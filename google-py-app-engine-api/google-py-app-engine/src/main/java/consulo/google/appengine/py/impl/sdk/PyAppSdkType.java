@@ -14,22 +14,24 @@
  * limitations under the License.
  */
 
-package consulo.google.appengine.py.sdk;
+package consulo.google.appengine.py.impl.sdk;
+
+import com.jetbrains.python.impl.sdk.PythonSdkType;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.content.base.BinariesOrderRootType;
+import consulo.content.bundle.Sdk;
+import consulo.content.bundle.SdkModificator;
+import consulo.content.bundle.SdkType;
+import consulo.google.appengine.python.sdk.GoogleAppEnginePySdkType;
+import consulo.virtualFileSystem.VirtualFile;
 
 import javax.annotation.Nonnull;
-
-import consulo.google.appengine.python.sdk.GoogleAppEnginePySdkType;
-import com.intellij.openapi.projectRoots.Sdk;
-import com.intellij.openapi.projectRoots.SdkModificator;
-import com.intellij.openapi.projectRoots.SdkType;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.jetbrains.python.sdk.PythonSdkType;
-import consulo.roots.types.BinariesOrderRootType;
 
 /**
  * @author VISTALL
  * @since 27.09.13.
  */
+@ExtensionImpl
 public class PyAppSdkType extends GoogleAppEnginePySdkType
 {
 	public PyAppSdkType()

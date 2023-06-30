@@ -16,12 +16,12 @@
 
 package consulo.google.appengine.php.module.extension;
 
-import javax.annotation.Nonnull;
-
-import com.intellij.openapi.projectRoots.SdkType;
+import consulo.content.bundle.SdkType;
 import consulo.google.appengine.php.sdk.PhpAppSdkType;
 import consulo.google.appengine.python.module.extension.BasePyModuleExtension;
-import consulo.roots.ModuleRootLayer;
+import consulo.module.content.layer.ModuleRootLayer;
+import jakarta.annotation.Nonnull;
+
 
 /**
  * @author VISTALL

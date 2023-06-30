@@ -16,21 +16,21 @@
 
 package consulo.google.appengine.go.module.extension;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.swing.*;
-
-import com.intellij.util.ui.JBUI;
-import consulo.desktop.util.awt.component.VerticalLayoutPanel;
 import consulo.disposer.Disposable;
-import consulo.extension.ui.ModuleExtensionSdkBoxBuilder;
+import consulo.module.content.layer.ModuleRootLayer;
 import consulo.module.extension.MutableModuleExtensionWithSdk;
 import consulo.module.extension.swing.SwingMutableModuleExtension;
-import consulo.roots.ModuleRootLayer;
+import consulo.module.ui.extension.ModuleExtensionSdkBoxBuilder;
 import consulo.ui.Component;
 import consulo.ui.Label;
 import consulo.ui.annotation.RequiredUIAccess;
+import consulo.ui.ex.awt.JBUI;
+import consulo.ui.ex.awt.VerticalLayoutPanel;
 import consulo.ui.layout.VerticalLayout;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
 
 /**
  * @author VISTALL
