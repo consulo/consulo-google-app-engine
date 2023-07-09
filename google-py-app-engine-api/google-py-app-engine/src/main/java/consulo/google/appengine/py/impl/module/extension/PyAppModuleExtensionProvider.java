@@ -37,7 +37,7 @@ public class PyAppModuleExtensionProvider implements ModuleExtensionProvider<PyA
 	@Override
 	public LocalizeValue getName()
 	{
-		return GoogleAppEngineLocalize.moduleExtensionName();
+		return GoogleAppEngineLocalize.name();
 	}
 
 	@Nonnull

@@ -37,7 +37,7 @@ public class JavaAppModuleExtensionProvider implements ModuleExtensionProvider<J
 	@Override
 	public LocalizeValue getName()
 	{
-		return GoogleAppEngineLocalize.moduleExtensionName();
+		return GoogleAppEngineLocalize.name();
 	}
 
 	@Nonnull

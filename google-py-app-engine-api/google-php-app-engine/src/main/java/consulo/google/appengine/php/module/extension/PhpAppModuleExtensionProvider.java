@@ -37,7 +37,7 @@ public class PhpAppModuleExtensionProvider implements ModuleExtensionProvider<Ph
 	@Override
 	public LocalizeValue getName()
 	{
-		return GoogleAppEngineLocalize.moduleExtensionName();
+		return GoogleAppEngineLocalize.name();
 	}
 
 	@Nonnull

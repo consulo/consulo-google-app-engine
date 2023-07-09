@@ -20,6 +20,7 @@ import consulo.configurable.ConfigurationException;
 import consulo.configurable.UnnamedConfigurable;
 import consulo.execution.configuration.ui.SettingsEditor;
 import consulo.google.appengine.api.icon.GoogleAppEngineIconGroup;
+import consulo.google.appengine.localize.GoogleAppEngineLocalize;
 import consulo.google.appengine.module.extension.GoogleAppEngineModuleExtension;
 import consulo.language.util.ModuleUtilCore;
 import consulo.module.Module;
@@ -37,7 +38,6 @@ import consulo.remoteServer.runtime.deployment.DeploymentTask;
 import consulo.remoteServer.runtime.deployment.ServerRuntimeInstance;
 import consulo.remoteServer.runtime.local.LocalRunner;
 import consulo.ui.ex.awt.FormBuilder;
-import consulo.ui.image.Image;
 import consulo.util.collection.SmartList;
 
 import javax.annotation.Nonnull;
@@ -54,7 +54,7 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 {
 	public GoogleAppEngineServerType()
 	{
-		super("google-app-engine");
+		super("google-app-engine", GoogleAppEngineLocalize.name(), GoogleAppEngineIconGroup.appengine());
 	}
 
 	@Nullable
@@ -68,20 +68,6 @@ public class GoogleAppEngineServerType extends ServerType<GoogleAppEngineServerC
 	public boolean isConfigurationTypeIsAvailable(@Nonnull Project project)
 	{
 		return super.isConfigurationTypeIsAvailable(project) && ModuleExtensionHelper.getInstance(project).hasModuleExtension(GoogleAppEngineModuleExtension.class);
-	}
-
-	@Nonnull
-	@Override
-	public String getPresentableName()
-	{
-		return "Google App Engine";
-	}
-
-	@Nonnull
-	@Override
-	public Image getIcon()
-	{
-		return GoogleAppEngineIconGroup.appengine();
 	}
 
 	@Nonnull
