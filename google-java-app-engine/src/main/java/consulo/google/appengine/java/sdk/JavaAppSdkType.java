@@ -16,7 +16,7 @@
 
 package consulo.google.appengine.java.sdk;
 
-import com.intellij.java.language.projectRoots.JavaSdk;
+import com.intellij.java.language.projectRoots.JavaSdkType;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.application.util.SystemInfo;
 import consulo.content.base.BinariesOrderRootType;
@@ -113,7 +113,7 @@ public class JavaAppSdkType extends GoogleAppEngineSdkType
 	@Override
 	public SdkType getLanguageSdkType()
 	{
-		return JavaSdk.getInstance();
+		return JavaSdkType.getDefaultJavaSdkType();
 	}
 
 	@Nullable
